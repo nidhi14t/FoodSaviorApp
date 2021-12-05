@@ -43,7 +43,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="container">
+        <Container class="javax.swing.JPanel" name="JPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="left"/>
@@ -55,9 +55,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnUsername" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUsername" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                          <Component id="txtUsername" alignment="0" pref="147" max="32767" attributes="0"/>
+                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -68,7 +69,6 @@
                               <Component id="btnRegister" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="btnPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblNewUser" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnLogin" alignment="0" max="32767" attributes="0"/>
@@ -86,15 +86,15 @@
                       <Component id="btnUsername" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtUsername" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="459" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="329" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                           <Component id="btnPassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
@@ -121,8 +121,6 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPassword">
-            </Component>
             <Component class="javax.swing.JButton" name="btnLogin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login"/>
@@ -135,6 +133,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNewUser">
               <Properties>
@@ -146,27 +147,18 @@
                 <Property name="text" type="java.lang.String" value="Register"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JPasswordField" name="txtPassword">
+            </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="container">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
               <JSplitPaneConstraints position="right"/>
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="532" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="593" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
         </Container>
       </SubComponents>
     </Container>
