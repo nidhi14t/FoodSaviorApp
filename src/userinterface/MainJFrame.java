@@ -5,9 +5,11 @@
  */
 package userinterface;
 import Business.BusinessModel;
+import Business.DB4OUtil.DB4OUtil;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 /**
  *
  * @author nidhitiwari
@@ -18,8 +20,12 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     private BusinessModel businessModel;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    
     public MainJFrame() {
         initComponents();
+        businessModel = dB4OUtil.retrieveSystem();
+        this.setSize(1680, 1050);
     }
     
 
@@ -33,16 +39,16 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        container = new javax.swing.JPanel();
+        JPanel1 = new javax.swing.JPanel();
         btnUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         btnPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblNewUser = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        txtPassword = new javax.swing.JPasswordField();
+        container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,49 +64,54 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         lblNewUser.setText("Not a User ? Register ?  ");
 
         btnRegister.setText("Register");
 
-        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
-        container.setLayout(containerLayout);
-        containerLayout.setHorizontalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerLayout.createSequentialGroup()
+        javax.swing.GroupLayout JPanel1Layout = new javax.swing.GroupLayout(JPanel1);
+        JPanel1.setLayout(JPanel1Layout);
+        JPanel1Layout.setHorizontalGroup(
+            JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(txtPassword))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(containerLayout.createSequentialGroup()
+            .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnRegister)
-                        .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnPassword)
-                            .addComponent(txtPassword)
                             .addComponent(lblNewUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        containerLayout.setVerticalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerLayout.createSequentialGroup()
+        JPanel1Layout.setVerticalGroup(
+            JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(btnUsername)
                 .addGap(18, 18, 18)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(459, Short.MAX_VALUE))
-            .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(containerLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(329, Short.MAX_VALUE))
+            .addGroup(JPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanel1Layout.createSequentialGroup()
                     .addGap(204, 204, 204)
                     .addComponent(btnPassword)
-                    .addGap(18, 18, 18)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(34, 34, 34)
+                    .addGap(78, 78, 78)
                     .addComponent(btnLogin)
                     .addGap(18, 18, 18)
                     .addComponent(btnLogout)
@@ -111,20 +122,10 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addContainerGap(107, Short.MAX_VALUE)))
         );
 
-        jSplitPane1.setLeftComponent(container);
+        jSplitPane1.setLeftComponent(JPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(jPanel2);
+        container.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(container);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,14 +151,14 @@ public class MainJFrame extends javax.swing.JFrame {
         try{
             if(ua == null){
                 JOptionPane.showMessageDialog(null," Invalid User Name or Password ");
-                txtUsername.setText("");
-                txtPassword.setText("");
-                throw new Exception();
+                 txtUsername.setText("");
+                 txtPassword.setText("");
+                 throw new Exception();
             }
         } catch(Exception e){
             return;
         }
-
+        
         CardLayout layout = (CardLayout) container.getLayout();
         container.add(ua.getRole().createWorkArea(container, ua, businessModel));
         layout.next(container);
@@ -166,6 +167,24 @@ public class MainJFrame extends javax.swing.JFrame {
         txtPassword.setEnabled(false);
         btnLogin.setEnabled(false);
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        btnLogout.setEnabled(false);
+        txtUsername.setEnabled(true);
+        txtPassword.setEnabled(true);
+        btnLogin.setEnabled(true);
+
+        txtUsername.setText("");
+        txtPassword.setText("");
+
+        container.removeAll();
+        JPanel blankJP = new JPanel();
+        container.add("blank", blankJP);
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        crdLyt.next(container);
+        dB4OUtil.storeSystem(businessModel);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,16 +223,16 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanel1;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel btnPassword;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel btnUsername;
     private javax.swing.JPanel container;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblNewUser;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
