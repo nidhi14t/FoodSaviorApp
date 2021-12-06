@@ -8,15 +8,17 @@ package Business.Role;
 import Business.BusinessModel;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+import userinterface.WarehouseAdminRole.AdminWorkAreaJPanel;
 
 /**
  *
  * @author nidhitiwari
  */
-public class SystemAdminRole extends Role {
-    
-        public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, BusinessModel system) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+public class AdminRole extends Role {
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, BusinessModel business) {
+        return new AdminWorkAreaJPanel(userProcessContainer,
+        account, business
+        );
     }
 }

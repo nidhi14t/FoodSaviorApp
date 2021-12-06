@@ -5,21 +5,19 @@
  */
 package Business.WorkQueue;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author nidhitiwari
  */
-public class WorkQueue {
+public class RequestResult {
     
-    private ArrayList<WorkRequest> workRequestList;
+    private String testResult;
 
-    public WorkQueue() {
-        workRequestList = new ArrayList();
+    public String getTestResult() {
+        return testResult;
     }
 
-    public ArrayList<WorkRequest> getWorkRequestList() {
-        return workRequestList;
+    public void setTestResult(String testResult) {
+        this.testResult = testResult;
     }
 }
