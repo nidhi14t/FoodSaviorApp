@@ -17,7 +17,7 @@ public abstract class Role {
         public enum RoleType{
         WarehouseAdmin("RestaurantAdmin"),
         Customer("Customer"),
-        NGOAdmin("NGOAdmin"),
+        NgoAdmin("NgoAdmin"),
         Distributor("Distributor"),
         FoodAuditor("FoodAuditor"),
         DeliveryMan("Delivery"),
