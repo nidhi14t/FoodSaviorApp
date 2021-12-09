@@ -21,6 +21,7 @@ public class NGO {
     private String ngoAddress;
     private String ngoContact;
     private String ngoManager;
+    private String username;
     
     private OrgDirectory orgDirectory; 
     private ArrayList<Org> Org;
@@ -36,6 +37,14 @@ public class NGO {
 
     public String getNgoAddress() {
         return ngoAddress;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setNgoAddress(String ngoAddress) {
