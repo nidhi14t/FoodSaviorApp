@@ -54,6 +54,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageWarehouseInfo.setBackground(new java.awt.Color(0, 153, 255));
         btnManageWarehouseInfo.setText("Manage Warehouse Info");
+        btnManageWarehouseInfo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageWarehouseInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageWarehouseInfoActionPerformed(evt);
@@ -62,6 +63,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         btnManageDiscardedItems.setBackground(new java.awt.Color(0, 153, 255));
         btnManageDiscardedItems.setText("Manage Discarded Items");
+        btnManageDiscardedItems.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageDiscardedItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageDiscardedItemsActionPerformed(evt);
@@ -79,7 +81,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 134, Short.MAX_VALUE)
+                .addGap(134, 134, 134)
                 .addComponent(lblWarehouseAdminRole)
                 .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
@@ -109,7 +111,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageDiscardedItems)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageWarehouseInfo)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

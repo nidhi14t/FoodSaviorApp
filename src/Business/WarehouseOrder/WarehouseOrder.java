@@ -27,6 +27,15 @@ public class WarehouseOrder extends WorkRequest {
     private String itemName;
     private String orderStatus;
     private String deliveryAddress;
+    private String deliveryMan;
+
+    public String getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(String deliveryMan) {
+        this.deliveryMan = deliveryMan;
+    }
     
     private ArrayList<DiscardedItem> WarehouseOrder;
 

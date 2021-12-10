@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author nidhitiwari
+ * @author karpe.s@northeastern.edu
  */
 public class ManageOrderDetails extends javax.swing.JPanel {
     
@@ -63,10 +63,11 @@ public class ManageOrderDetails extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblManageOrder = new javax.swing.JTable();
         btnStatus = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        backbtn = new javax.swing.JButton();
         lblManageOrderDetails = new javax.swing.JLabel();
 
-        lblManageOrderDetailsLabel.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lblManageOrderDetailsLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblManageOrderDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageOrderDetailsLabel.setText("Manage Order Details");
 
         tblManageOrder.setModel(new javax.swing.table.DefaultTableModel(
@@ -77,30 +78,32 @@ public class ManageOrderDetails extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish", "Price"
+                "Items", "Price"
             }
         ));
         jScrollPane1.setViewportView(tblManageOrder);
 
-        btnStatus.setBackground(new java.awt.Color(0, 153, 255));
-        btnStatus.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnStatus.setBackground(new java.awt.Color(255, 255, 255));
+        btnStatus.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnStatus.setText("Ready To Deliver");
+        btnStatus.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStatusActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 255));
-        jButton2.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        backbtn.setBackground(new java.awt.Color(255, 255, 255));
+        backbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        backbtn.setText("Back");
+        backbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                backbtnActionPerformed(evt);
             }
         });
 
-        lblManageOrderDetails.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lblManageOrderDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblManageOrderDetails.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -112,32 +115,30 @@ public class ManageOrderDetails extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblManageOrderDetailsLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblManageOrderDetails))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(btnStatus)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                        .addGap(120, 120, 120)
+                        .addComponent(lblManageOrderDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(lblManageOrderDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManageOrderDetails, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblManageOrderDetailsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblManageOrderDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageOrderDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(backbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnStatus)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,17 +157,17 @@ public class ManageOrderDetails extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnStatusActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void backbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_backbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backbtn;
     private javax.swing.JButton btnStatus;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblManageOrderDetails;
     private javax.swing.JLabel lblManageOrderDetailsLabel;
