@@ -16,23 +16,34 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="988" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnBack" min="-2" pref="75" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="refreshBtn" min="-2" pref="123" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnAcceptOrder" min="-2" pref="136" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnRejectOrder" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="assgnDelManBtn" min="-2" pref="164" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="353" max="32767" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="835" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnAcceptOrder" min="-2" pref="136" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnRejectOrder" min="-2" pref="130" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jScrollPane1" min="-2" pref="835" max="-2" attributes="0"/>
                   <EmptySpace pref="147" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -40,25 +51,27 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="499" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="refreshBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btnBack" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnRejectOrder" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btnAcceptOrder" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="assgnDelManBtn" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="193" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnAcceptOrder" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnRejectOrder" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="171" max="32767" attributes="0"/>
+                  <EmptySpace pref="199" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -93,20 +106,25 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="18" style="3"/>
+          <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Warehouse Admin Role: Manage Orders  "/>
+        <Property name="text" type="java.lang.String" value="Distributor Admin Role: Manage Orders  "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="3"/>
+          <Font name="Times New Roman" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
@@ -115,12 +133,17 @@
     <Component class="javax.swing.JButton" name="btnAcceptOrder">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="3"/>
+          <Font name="Times New Roman" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Accept Order"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcceptOrderActionPerformed"/>
@@ -129,15 +152,58 @@
     <Component class="javax.swing.JButton" name="btnRejectOrder">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="3"/>
+          <Font name="Times New Roman" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Reject Order"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRejectOrderActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="refreshBtn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Refresh"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="assgnDelManBtn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Assign Delivery Man"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assgnDelManBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
