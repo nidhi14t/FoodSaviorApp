@@ -5,6 +5,18 @@
  */
 package userinterface.DistributorAdminRole;
 
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+import Business.BusinessModel;
+import Business.DeliveryMan.DeliveryMan;
+import Business.Role.DeliverymanRole;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 /**
  *
  * @author karpe.s@northeastern.edu
@@ -14,8 +26,15 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     /**
      * Creates new form ManageDeliveryMan
      */
-    public ManageDeliveryMan() {
+    private JPanel userProcessContainer;
+    private BusinessModel system ;
+    private UserAccount user;
+    public ManageDeliveryMan(JPanel userProcessContainer,BusinessModel system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        tblManageDeliMan();
+        confirmBtn.setEnabled(false);
     }
 
     /**
@@ -35,9 +54,9 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         nametxt = new javax.swing.JTextField();
         unametxt = new javax.swing.JTextField();
         passtxt = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        submitBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblManageDeli = new javax.swing.JTable();
+        tblManageDeliMan = new javax.swing.JTable();
         updateBtn = new javax.swing.JButton();
         confirmBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
@@ -45,6 +64,11 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         backBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         backBtn.setText("Back");
         backBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,11 +98,16 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Submit");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        submitBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        submitBtn.setText("Submit");
+        submitBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
+            }
+        });
 
-        tblManageDeli.setModel(new javax.swing.table.DefaultTableModel(
+        tblManageDeliMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -86,18 +115,28 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Restaurant Name", "Username", "Password"
+                "Name", "Username", "Password"
             }
         ));
-        jScrollPane1.setViewportView(tblManageDeli);
+        jScrollPane1.setViewportView(tblManageDeliMan);
 
         updateBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         updateBtn.setText("Update");
         updateBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
         confirmBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         confirmBtn.setText("Confirm Update");
         confirmBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        confirmBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmBtnActionPerformed(evt);
+            }
+        });
 
         deleteBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         deleteBtn.setText("Delete");
@@ -126,7 +165,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                                 .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(292, 292, 292)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -165,7 +204,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -188,13 +227,216 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     private void passtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passtxtActionPerformed
+    private void tblManageDeliMan() {
+    DefaultTableModel model = (DefaultTableModel) tblManageDeliMan.getModel();
+        
+        model.setRowCount(0);
+        
+       // for()
+        for (UserAccount user : system.getUserAccountDirectory().getUserAccountList()) {
+            System.out.println(user.getRole().getClass().getName());
+            if ("Business.Role.DeliverymanRole".equals(user.getRole().getClass().getName())) {
+                Object[] row = new Object[3];
+               
+                row[0] = user.getName();
+                row[1] = user.getUsername();
+                row[2] = user.getPassword();
+                
+                model.addRow(row);
+            }
+            
+        }
+    }
+    
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        String name = nametxt.getText();
+        String uname=unametxt.getText();
+        String password=passtxt.getText();
+
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid Pattern used for Password");
+
+            return;
+        }
+
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+            
+        UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new DeliverymanRole());
+        DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(uname);
+        tblManageDeliMan();
+        nametxt.setText("");
+        unametxt.setText("");
+        passtxt.setText("");
+            
+        }
+    }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+//        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
+        String name = nametxt.getText();
+        String uname=unametxt.getText();
+        String password=passtxt.getText();
+
+        try {
+            if(name==null || name.isEmpty()){
+                throw new NullPointerException(" Name field is Empty");
+
+            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
+                throw new Exception("Please enter valid  Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, " Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "  Name is invalid");
+
+            return;
+        }
+
+        try {
+            if(uname==null || uname.isEmpty()){
+                throw new NullPointerException("User Name field is Empty");
+
+            }else if(uname.length()<5){
+                throw new Exception("Please enter valid User Name");
+
+            }
+        } catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "User Name is Empty");
+
+            return;
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, " User Name is invalid");
+
+            return;
+        }
+
+        try {
+
+            if(password==null || password.isEmpty()){
+                throw new NullPointerException("Pwd field is Empty");
+            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Invalid Password");
+            }
+
+        }  catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Password is Empty");
+
+            return;
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
+
+            return;
+        }
+
+        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+        }else{
+
+            system.getUserAccountDirectory().updateUserAccount(user,name,uname,password);
+            tblManageDeliMan();
+            nametxt.setText("");
+            unametxt.setText("");
+            passtxt.setText("");
+            submitBtn.setEnabled(true);
+            deleteBtn.setEnabled(true);
+            updateBtn.setEnabled(true);
+            confirmBtn.setEnabled(false);
+        }
+    }//GEN-LAST:event_confirmBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        int selectRow = tblManageDeliMan.getSelectedRow();
+
+        if(selectRow>=0){
+            String username= (String) tblManageDeliMan.getValueAt(selectRow, 1);
+            String pwd= (String) tblManageDeliMan.getValueAt(selectRow, 2);
+            user=system.getUserAccountDirectory().authenticateUser(username, pwd);
+
+            nametxt.setText(user.getName()+"");
+            unametxt.setText(user.getUsername()+"");
+            passtxt.setText(user.getPassword()+"");
+        
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Please select a row");
+        }
+        submitBtn.setEnabled(false);
+        deleteBtn.setEnabled(false);
+        updateBtn.setEnabled(true);
+        confirmBtn.setEnabled(true);
+    }//GEN-LAST:event_updateBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton confirmBtn;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -202,7 +444,8 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField passtxt;
-    private javax.swing.JTable tblManageDeli;
+    private javax.swing.JButton submitBtn;
+    private javax.swing.JTable tblManageDeliMan;
     private javax.swing.JTextField unametxt;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
