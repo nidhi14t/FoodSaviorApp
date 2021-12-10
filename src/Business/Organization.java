@@ -28,7 +28,7 @@ public abstract class Organization {
         WarehouseAdmin("WarehouseAdmin"),
         Customer("Customer"),
         NgoAdmin("NgoAdmin"),
-        DistributerAdmin("DistributerAdmin"),
+        DistAdmin("DistAdmin"),
         FoodAuditorAdmin("FoodAuditorAdmin"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin");

@@ -19,6 +19,7 @@ public abstract class Role {
         Customer("Customer"),
         NgoAdmin("NgoAdmin"),
         Distributor("Distributor"),
+        DistAdmin("DistAdmin"),
         FoodAuditor("FoodAuditor"),
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin"),
