@@ -37,13 +37,18 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnManageNgo = new javax.swing.JButton();
         btnManageWarehouse = new javax.swing.JButton();
         mngDistributorBtn = new javax.swing.JButton();
         mngFoodAuditorbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jButton1.setText("Manage NGO's  ");
+        btnManageNgo.setText("Manage NGO's  ");
+        btnManageNgo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageNgoActionPerformed(evt);
+            }
+        });
 
         btnManageWarehouse.setText("Manage Warehouses");
         btnManageWarehouse.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +80,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(mngFoodAuditorbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageWarehouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageNgo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mngDistributorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
@@ -88,7 +93,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addGap(79, 79, 79)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManageNgo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageWarehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -129,10 +134,18 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_mngDistributorBtnActionPerformed
 
+    private void btnManageNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNgoActionPerformed
+        // TODO add your handling code here:
+        ManageNGO manageNGOPanel= new ManageNGO(userProcessContainer, businessModel);
+        userProcessContainer.add("Manage NGO",manageNGOPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageNgoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageNgo;
     private javax.swing.JButton btnManageWarehouse;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mngDistributorBtn;

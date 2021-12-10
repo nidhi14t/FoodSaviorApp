@@ -446,6 +446,7 @@ public class ManageDistributor extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

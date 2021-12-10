@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,11 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="672" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnUpdate" min="-2" pref="113" max="-2" attributes="0"/>
@@ -37,10 +31,6 @@
                               <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -48,25 +38,25 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblWarehouseUsername" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWarehouseName" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWarehousePassword" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWarehouseContact" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWarehouseAddress" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNGOUsername" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNGOName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNGOPassword" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNGOContact" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNGOAddress" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtWarehouseName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtWarehouseUserName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtWarehousePassword" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtWarehouseAddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtWarehouseContact" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <Component id="txtNGOName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNGOUserName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNGOPassword" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNGOAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNGOContact" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                                   <Component id="btnSubmit" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="lblManageWarehouseTitle" min="-2" pref="284" max="-2" attributes="0"/>
+                              <Component id="lblManageNGOTitle" min="-2" pref="284" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -81,31 +71,31 @@
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="lblManageWarehouseTitle" min="-2" max="-2" attributes="0"/>
+              <Component id="lblManageNGOTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblWarehouseName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtWarehouseName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNGOName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNGOName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtWarehouseUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblWarehouseUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNGOUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNGOUsername" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtWarehousePassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblWarehousePassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNGOPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNGOPassword" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblWarehouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtWarehouseAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNGOAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNGOAddress" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblWarehouseContact" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtWarehouseContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNGOContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNGOContact" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnSubmit" min="-2" pref="38" max="-2" attributes="0"/>
@@ -117,71 +107,19 @@
                   <Component id="btnConfirm" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnBack">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="0" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Back"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblManageWarehouseTitle">
+    <Component class="javax.swing.JLabel" name="lblManageNGOTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Warehouse "/>
+        <Property name="text" type="java.lang.String" value="Manage NGO"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehouseName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Warehouse Name"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtWarehouseName">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehouseUsername">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Manager Username"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtWarehouseUserName">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehousePassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Manager Password"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtWarehousePassword">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehouseAddress">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Warehouse Address"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtWarehouseAddress">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehouseContact">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Warehouse Contact"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtWarehouseContact">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtWarehouseContactActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSubmit">
       <Properties>
@@ -197,6 +135,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JLabel" name="lblNGOName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NGO Name"/>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -204,11 +147,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblManageWarehouse">
+        <Component class="javax.swing.JTable" name="tblManageNGO">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="4">
-                <Column editable="true" title="Warehouse Name" type="java.lang.Object"/>
+                <Column editable="true" title="NGO Name" type="java.lang.Object"/>
                 <Column editable="true" title="Username" type="java.lang.Object"/>
                 <Column editable="true" title="Password" type="java.lang.Object"/>
                 <Column editable="true" title="Contact" type="java.lang.Object"/>
@@ -251,6 +194,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="txtNGOName">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNGOUsername">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Username"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -264,6 +214,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNGOUserName">
     </Component>
     <Component class="javax.swing.JButton" name="btnConfirm">
       <Properties>
@@ -279,6 +231,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JLabel" name="lblNGOPassword">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Password"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -291,6 +248,39 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNGOPassword">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNGOAddress">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NGO Address"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNGOAddress">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNGOContact">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NGO Contact"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="13" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Back"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNGOContact">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNGOContactActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
