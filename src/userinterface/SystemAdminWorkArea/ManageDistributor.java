@@ -10,9 +10,9 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
 import Business.BusinessModel;
-import Business.Role.AdminRole;
+import Business.Role.DistAdminRole;
 import javax.swing.table.DefaultTableModel;
-import Business.Warehouse.Warehouse;
+import Business.Distributor.Distributor;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -30,30 +30,31 @@ public class ManageDistributor extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.business = business;
-        populateManageWarehouseTable();
-//        confirmBtn.setEnabled(false);
+        populateManageDistributorTable();
+        confirmBtn.setEnabled(false);
     }
     
-    private void populateManageWarehouseTable() {
-        DefaultTableModel model = (DefaultTableModel) tblManageWare.getModel();
+    private void populateManageDistributorTable() {
+        DefaultTableModel model = (DefaultTableModel) tblManageDist.getModel();
         
         model.setRowCount(0);
         
         for (UserAccount user : business.getUserAccountDirectory().getUserAccountList()) {
             
-            for (Warehouse rest:business.getWarehouseDirectory().getWarehouseList()) {
-            if ("Business.Role.AdminRole".equals(user.getRole().getClass().getName()) && rest.getAdminUserName().equals(user.getUsername())) {
+            for (Distributor dist:business.getDistributorDirectory().getDistributorList()) {
+            if ("Business.Role.DistAdminRole".equals(user.getRole().getClass().getName()) && dist.getDistAdminUserName().equals(user.getUsername())) {
+                
                 Object[] row = new Object[5];
                
                 row[0] = user.getName();
                 row[1] = user.getUsername();
                 row[2] = user.getPassword();
-                row[3] = rest.getWarehouseContact();
-                row[4] = rest.getWarehouseAddress();
-                
+                row[3] = dist.getDistributorContact();
+                row[4] = dist.getDistributorAddress();
                 model.addRow(row);
             }
-          }
+            }
+            
         }
     }
 
@@ -80,7 +81,7 @@ public class ManageDistributor extends javax.swing.JPanel {
         distContcttxt = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblManageWare = new javax.swing.JTable();
+        tblManageDist = new javax.swing.JTable();
         updateBtn = new javax.swing.JButton();
         confirmBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
@@ -147,7 +148,7 @@ public class ManageDistributor extends javax.swing.JPanel {
             }
         });
 
-        tblManageWare.setModel(new javax.swing.table.DefaultTableModel(
+        tblManageDist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -158,7 +159,7 @@ public class ManageDistributor extends javax.swing.JPanel {
                 "Distributor Name", "Username", "Password", "Contact", "Address"
             }
         ));
-        jScrollPane1.setViewportView(tblManageWare);
+        jScrollPane1.setViewportView(tblManageDist);
 
         updateBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         updateBtn.setText("Update");
@@ -256,12 +257,11 @@ public class ManageDistributor extends javax.swing.JPanel {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(distContcttxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
-                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(29, Short.MAX_VALUE)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(328, 328, 328)))
+                        .addGap(29, 29, 29)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -343,9 +343,9 @@ public class ManageDistributor extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"User Name already exists ");
         }else{
             
-        UserAccount uacc =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new AdminRole());
-        Warehouse ware= business.getWarehouseDirectory().createWarehouseInfo(name, username, address, contact);
-        populateManageWarehouseTable();
+        UserAccount uacc =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new DistAdminRole());
+        Distributor dist= business.getDistributorDirectory().createDistributorInfo(name, username, address, contact);
+        populateManageDistributorTable();
         
         dnametxt.setText("");
         mnametxt.setText("");
@@ -356,11 +356,11 @@ public class ManageDistributor extends javax.swing.JPanel {
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        int selectRow = tblManageWare.getSelectedRow();
+        int selectRow = tblManageDist.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) tblManageWare.getValueAt(selectRow, 1);
-            String pwd= (String) tblManageWare.getValueAt(selectRow, 2);
+            String username= (String) tblManageDist.getValueAt(selectRow, 1);
+            String pwd= (String) tblManageDist.getValueAt(selectRow, 2);
             user=business.getUserAccountDirectory().authenticateUser(username, pwd);
 
             dnametxt.setText(user.getName()+"");
@@ -414,7 +414,7 @@ public class ManageDistributor extends javax.swing.JPanel {
         }
         
             business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
-            populateManageWarehouseTable();
+            populateManageDistributorTable();
             submitBtn.setEnabled(true);
             deleteBtn.setEnabled(true);
             updateBtn.setEnabled(true);
@@ -425,7 +425,24 @@ public class ManageDistributor extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tblManageDist.getSelectedRow();
+        if(selectedRow>=0){
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm Delete ? ","Warning",selectionButton);
+            if(selectionResult == JOptionPane.YES_OPTION){
+                String username= (String) tblManageDist.getValueAt(selectedRow, 1);
+                String pwd= (String) tblManageDist.getValueAt(selectedRow, 2);
+                UserAccount user=business.getUserAccountDirectory().authenticateUser(username, pwd);
+
+                business.getUserAccountDirectory().deleteUserAccount(user);
+                business.getCustomerDirectory().deleteCustomer(user.getUsername());
+                business.getDistributorDirectory().deleteDistributor();
+                business.getDistributorDirectory().deleteDistributor(username);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row to delete!");
+        }
+        populateManageDistributorTable();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -457,7 +474,7 @@ public class ManageDistributor extends javax.swing.JPanel {
     private javax.swing.JTextField mnametxt;
     private javax.swing.JTextField mpasstxt;
     private javax.swing.JButton submitBtn;
-    private javax.swing.JTable tblManageWare;
+    private javax.swing.JTable tblManageDist;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
