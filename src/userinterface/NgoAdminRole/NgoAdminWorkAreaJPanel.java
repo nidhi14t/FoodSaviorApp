@@ -48,7 +48,7 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageWarehouseInfo = new javax.swing.JButton();
         btnManageDiscardedItems = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnManageVolunteer = new javax.swing.JButton();
 
         lblEnterprise.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
         lblEnterprise.setText("NGO");
@@ -82,7 +82,12 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Manage Volunteer");
+        btnManageVolunteer.setText("Manage Volunteer");
+        btnManageVolunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageVolunteerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -105,7 +110,7 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnManageVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +125,7 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(64, 64, 64)
                 .addComponent(btnManageDiscardedItems)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnManageVolunteer)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -152,12 +157,17 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnManageVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVolunteerActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnManageVolunteerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageDiscardedItems;
+    private javax.swing.JButton btnManageVolunteer;
     private javax.swing.JButton btnManageWarehouseInfo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblEnterprise;
     private javax.swing.JLabel lblNgoName;
     private javax.swing.JLabel lblWarehouseAdminRole;

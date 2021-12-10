@@ -21,7 +21,8 @@ public abstract class Role {
         Distributor("Distributor"),
         FoodAuditor("FoodAuditor"),
         DeliveryMan("Delivery"),
-        SysAdmin("Sysadmin");
+        SysAdmin("Sysadmin"),
+        Volunteer("Volunteer");
         
         private String value;
         private RoleType(String value){

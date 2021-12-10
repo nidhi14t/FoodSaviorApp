@@ -7,6 +7,7 @@ package Business.WarehouseOrder;
 
 import Business.Customer.Customer;
 import Business.DiscardedItem.DiscardedItem;
+import Business.Org.Org;
 import Business.Warehouse.Warehouse;
 import Business.WorkQueue.WorkRequest;
 import java.util.ArrayList;
@@ -27,6 +28,24 @@ public class WarehouseOrder extends WorkRequest {
     private String itemName;
     private String orderStatus;
     private String deliveryAddress;
+    private String deliveryMan;
+    private String volunteer;
+
+    public String getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(String deliveryMan) {
+        this.deliveryMan = deliveryMan;
+    }
+
+    public String getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(String volunteer) {
+        this.volunteer = volunteer;
+    }
     
     private ArrayList<DiscardedItem> WarehouseOrder;
 
