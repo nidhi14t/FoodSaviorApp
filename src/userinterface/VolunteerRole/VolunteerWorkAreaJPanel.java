@@ -51,11 +51,12 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
             if(volunteer.getUserName().equals(userAccount.getUsername())){
                     
                 for(WarehouseOrder order : volunteer.getOrderList()){
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
                 row[0] = order;
-                row[1] = order.getCustomerName();
+                row[1] = order.getNgoName();
                 row[2] = order.getWarehouseName();
-                row[3] = order.getStatus();
+                row[3] = order.getOrgName();
+                row[4] = order.getStatus();
                 
                 model.addRow(row);
                     
@@ -81,20 +82,20 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Customer", "Warehouse", "Status"
+                "Order Id", "Ngo Name", "Warehouse", "Distribute To Organization", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -130,12 +131,12 @@ public class VolunteerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(refreshJButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())

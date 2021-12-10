@@ -135,7 +135,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         String status=resultJTextField.getText();
         try {
             if(status==null || status.isEmpty()){
-                throw new Exception(" Status field is Empty");
+                throw new Exception("Status field is Empty");
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "Status is Empty");
@@ -144,7 +144,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         order.setStatus(status);
         for(NGO ngo:business.getNgoDirectory().getNGOList()){
-            if(order.getCustomerName().equals(ngo.getUsername())){
+            if(order.getNgoName().equals(ngo.getNgoAdminUserName())){
                 for(WarehouseOrder order1 : ware.getOrderList()){
                     if(order1.equals(order))
                     {

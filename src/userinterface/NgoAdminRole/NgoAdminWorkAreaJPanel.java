@@ -44,11 +44,12 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         lblEnterprise = new javax.swing.JLabel();
         lblNgoName = new javax.swing.JLabel();
-        lblWarehouseAdminRole = new javax.swing.JLabel();
+        lblNgoAdminRole = new javax.swing.JLabel();
         btnManageWarehouseInfo = new javax.swing.JButton();
         btnManageDiscardedItems = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnManageVolunteer = new javax.swing.JButton();
+        btnManageCompletedOrders = new javax.swing.JButton();
 
         lblEnterprise.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
         lblEnterprise.setText("NGO");
@@ -56,8 +57,8 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblNgoName.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
         lblNgoName.setText("<value>");
 
-        lblWarehouseAdminRole.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblWarehouseAdminRole.setText("My Work Area -NGO Adminstrative Role");
+        lblNgoAdminRole.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblNgoAdminRole.setText("My Work Area -NGO Adminstrative Role");
 
         btnManageWarehouseInfo.setBackground(new java.awt.Color(0, 153, 255));
         btnManageWarehouseInfo.setText("Manage NGO Info");
@@ -89,13 +90,20 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageCompletedOrders.setText("Manage Completed Orders");
+        btnManageCompletedOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageCompletedOrdersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblWarehouseAdminRole, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNgoAdminRole, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,18 +114,20 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(lblNgoName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnManageCompletedOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnManageVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(lblWarehouseAdminRole)
+                .addComponent(lblNgoAdminRole)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNgoName)
@@ -130,7 +140,9 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageWarehouseInfo)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnManageCompletedOrders)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,17 +171,29 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVolunteerActionPerformed
         // TODO add your handling code here:
-        
+        ManageVolunteer manageVolunteer=new ManageVolunteer(userProcessContainer,business);
+        userProcessContainer.add("Manage Volunteer",manageVolunteer);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageVolunteerActionPerformed
+
+    private void btnManageCompletedOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCompletedOrdersActionPerformed
+        // TODO add your handling code here:
+        AssignTaskToVolunteers atv = new AssignTaskToVolunteers(userProcessContainer,account,business);
+        userProcessContainer.add("Manage Complete Order",atv);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageCompletedOrdersActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnManageCompletedOrders;
     private javax.swing.JButton btnManageDiscardedItems;
     private javax.swing.JButton btnManageVolunteer;
     private javax.swing.JButton btnManageWarehouseInfo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblEnterprise;
+    private javax.swing.JLabel lblNgoAdminRole;
     private javax.swing.JLabel lblNgoName;
-    private javax.swing.JLabel lblWarehouseAdminRole;
     // End of variables declaration//GEN-END:variables
 }

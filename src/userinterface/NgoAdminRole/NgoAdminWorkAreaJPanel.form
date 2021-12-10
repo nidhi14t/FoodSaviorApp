@@ -18,7 +18,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="lblWarehouseAdminRole" min="-2" pref="491" max="-2" attributes="0"/>
+              <Component id="lblNgoAdminRole" min="-2" pref="491" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -31,11 +31,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnManageDiscardedItems" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnManageWarehouseInfo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                          <Component id="btnManageVolunteer" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnManageCompletedOrders" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnManageDiscardedItems" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnManageWarehouseInfo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="btnManageVolunteer" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -47,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-              <Component id="lblWarehouseAdminRole" min="-2" max="-2" attributes="0"/>
+              <Component id="lblNgoAdminRole" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNgoName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -61,7 +64,9 @@
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnManageWarehouseInfo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="216" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnManageCompletedOrders" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="169" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +88,7 @@
         <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblWarehouseAdminRole">
+    <Component class="javax.swing.JLabel" name="lblNgoAdminRole">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
@@ -127,6 +132,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageVolunteerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnManageCompletedOrders">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Completed Orders"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageCompletedOrdersActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

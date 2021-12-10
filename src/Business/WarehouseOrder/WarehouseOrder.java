@@ -7,6 +7,7 @@ package Business.WarehouseOrder;
 
 import Business.Customer.Customer;
 import Business.DiscardedItem.DiscardedItem;
+import Business.NGO.NGO;
 import Business.Org.Org;
 import Business.Warehouse.Warehouse;
 import Business.WorkQueue.WorkRequest;
@@ -21,6 +22,8 @@ public class WarehouseOrder extends WorkRequest {
     private String warehouseName;
     private String customerName;
     private Customer customer;
+    private NGO ngo;
+    private String ngoName;
     private Warehouse warehouse;
     private int quantity;
     private Double price;
@@ -30,6 +33,31 @@ public class WarehouseOrder extends WorkRequest {
     private String deliveryAddress;
     private String deliveryMan;
     private String volunteer;
+    private String orgName;
+
+    public NGO getNgo() {
+        return ngo;
+    }
+
+    public void setNgo(NGO ngo) {
+        this.ngo = ngo;
+    }
+
+    public String getNgoName() {
+        return ngoName;
+    }
+
+    public void setNgoName(String ngoName) {
+        this.ngoName = ngoName;
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
 
     public String getDeliveryMan() {
         return deliveryMan;

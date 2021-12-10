@@ -26,6 +26,8 @@ public class NGO {
     private OrgDirectory orgDirectory; 
     private ArrayList<Org> Org;
     private int id = 1001;
+    
+    private ArrayList<WarehouseOrder> orderList;
 
     public String getNgoName() {
         return ngoName;
@@ -91,8 +93,6 @@ public class NGO {
         this.id = id;
     }
     
-    private ArrayList<WarehouseOrder> orderList;
-    
     private String ngoAdminUserName;
 
     public String getNgoAdminUserName() {
@@ -133,17 +133,18 @@ public class NGO {
         Org.remove(org);
     }
     
-    public void addOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
+    public void addOrder(String warehouseName, String ngoName, String deliveryMan, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
         WarehouseOrder order=new WarehouseOrder();
         order.setOrderID(String.valueOf(id));
-        order.setCustomerName(customerName);
-        order.setWarehouseName(restaurantName);
+        order.setNgoName(ngoName);
+        order.setWarehouseName(warehouseName);
         order.setWarehouseOrder(Order);
         order.setPrice(price);
         order.setDeliveryAddress(deliveryAddress);
         order.setStatus("New Order");
         order.setComment(" ");
         orderList.add(order);
+        System.out.print("order   " + orderList);
         id++;
     }
     

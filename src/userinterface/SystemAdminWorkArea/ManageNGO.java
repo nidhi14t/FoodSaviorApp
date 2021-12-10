@@ -45,7 +45,7 @@ public class ManageNGO extends javax.swing.JPanel {
         for (UserAccount user : business.getUserAccountDirectory().getUserAccountList()) {
             
             for (NGO ngo:business.getNgoDirectory().getNGOList()) {
-            if ("Business.Role.AdminRole".equals(user.getRole().getClass().getName()) && ngo.getNgoAdminUserName().equals(user.getUsername())) {
+            if ("Business.Role.NgoAdminRole".equals(user.getRole().getClass().getName()) && ngo.getNgoAdminUserName().equals(user.getUsername())) {
                 Object[] row = new Object[5];
                
                 row[0] = user.getName();
