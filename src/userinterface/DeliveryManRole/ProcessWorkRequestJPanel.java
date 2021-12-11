@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DeliveryMan;
+package userinterface.DeliveryManRole;
 
 import Business.BusinessModel;
 import Business.Customer.Customer;
