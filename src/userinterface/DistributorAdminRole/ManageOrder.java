@@ -282,6 +282,21 @@ public class ManageOrder extends javax.swing.JPanel {
 
     private void logBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBtnActionPerformed
         // TODO add your handling code here:
+        int selectedRow = ManageOrdersTbl.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table");
+        }
+        else{
+            WarehouseOrder order  = (WarehouseOrder)ManageOrdersTbl.getValueAt(selectedRow, 0);
+            if(order.getStatus().equals("Assigned to Logistic") || order.getStatus().equals("Assign to Logistic") || order.getStatus().equals("Done")){
+                JOptionPane.showMessageDialog(null, "Order Assigned Already");
+            }else{
+                AssignLogistic viewOrder=new AssignLogistic(userProcessContainer,account,order,business);
+                userProcessContainer.add("View Order",viewOrder);
+                CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            }
+        }
     }//GEN-LAST:event_logBtnActionPerformed
 
 

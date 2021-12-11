@@ -6,10 +6,12 @@
 package userinterface.DistributorAdminRole;
 
 import Business.BusinessModel;
+import Business.DeliveryMan.DeliveryMan;
 import Business.Logistic.Logistic;
 import Business.UserAccount.UserAccount;
 import Business.WarehouseOrder.WarehouseOrder;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,13 +30,13 @@ public class AssignLogistic extends javax.swing.JPanel {
     BusinessModel business;
     public AssignLogistic(JPanel userProcessContainer, UserAccount account, WarehouseOrder order, BusinessModel business) {
         initComponents();
-        transTable();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.order = order;
         this.business = business;
+        populateTransTable();
     }
-    private void transTable()
+    private void populateTransTable()
     {
         
         DefaultTableModel model = (DefaultTableModel) transTable.getModel();
@@ -62,6 +64,7 @@ public class AssignLogistic extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
+        assigntransbtn = new javax.swing.JButton();
 
         transTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,6 +94,15 @@ public class AssignLogistic extends javax.swing.JPanel {
             }
         });
 
+        assigntransbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        assigntransbtn.setText("Assign Transportation");
+        assigntransbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        assigntransbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assigntransbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,6 +117,10 @@ public class AssignLogistic extends javax.swing.JPanel {
                         .addGap(103, 103, 103)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(380, 380, 380))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(assigntransbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +133,9 @@ public class AssignLogistic extends javax.swing.JPanel {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(199, 199, 199))
+                .addGap(18, 18, 18)
+                .addComponent(assigntransbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -128,8 +146,28 @@ public class AssignLogistic extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void assigntransbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assigntransbtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = transTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table");
+        }
+        else
+        {
+
+            Logistic logistic  = (Logistic)transTable.getValueAt(selectedRow, 0);
+            logistic.getOrderList().add(order);
+            order.setStatus("Assigned Logistic");
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+
+        }
+    }//GEN-LAST:event_assigntransbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton assigntransbtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
