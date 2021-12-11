@@ -19,4 +19,5 @@ public class DeliveryManRole extends Role {
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, BusinessModel business) {
         return new DeliveryManWorkAreaJPanel(userProcessContainer,account, business);
     }
+    
 }

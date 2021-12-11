@@ -7,8 +7,30 @@ package Business.Logistic;
 
 /**
  *
- * @author nidhitiwari
+ * @author karpe.s@northeastern.edu
  */
 public class Logistic {
+    private String transport;
+    private String temprature;
+
+    public String getTransport() {
+        return transport;
+    }
+
+    public void setTransport(String transport) {
+        this.transport = transport;
+    }
+
+    public String getTemprature() {
+        return temprature;
+    }
+
+    public void setTemprature(String temprature) {
+        this.temprature = temprature;
+    }
     
+    @Override
+    public String toString() {
+        return transport;
+    }
 }
