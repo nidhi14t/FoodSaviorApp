@@ -34,6 +34,15 @@ public class WarehouseOrder extends WorkRequest {
     private String deliveryMan;
     private String volunteer;
     private String orgName;
+    private String foodAuditorName;
+
+    public String getFoodAuditorName() {
+        return foodAuditorName;
+    }
+
+    public void setFoodAuditorName(String foodAuditorName) {
+        this.foodAuditorName = foodAuditorName;
+    }
 
     public NGO getNgo() {
         return ngo;

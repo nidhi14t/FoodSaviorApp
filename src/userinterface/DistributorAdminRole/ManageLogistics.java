@@ -183,10 +183,11 @@ private void populateTable() {
          
         String transport = String.valueOf(transCombobox.getSelectedItem());
         String temprature = (String)tempCombobox.getSelectedItem();
-        JOptionPane.showMessageDialog(null, "Submit Successfully");
         
         Logistic logi= business.getLogisticDirectory().createLogistic(transport, temprature);
         populateTable();
+        
+        JOptionPane.showMessageDialog(null, "Submit Successfully");
         
     }//GEN-LAST:event_submitBtnActionPerformed
 
