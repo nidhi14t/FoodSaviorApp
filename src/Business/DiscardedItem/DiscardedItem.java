@@ -13,6 +13,15 @@ public class DiscardedItem {
     private String warehouseName;
     private String itemName;
     private double price;
+    private boolean goodToConsume = false;
+
+    public boolean isGoodToConsume() {
+        return goodToConsume;
+    }
+
+    public void setGoodToConsume(boolean goodToConsume) {
+        this.goodToConsume = goodToConsume;
+    }
     
     public DiscardedItem(String itemName,Double price) {
         this.itemName=itemName;
