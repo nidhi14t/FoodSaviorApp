@@ -11,6 +11,7 @@ import Business.BusinessModel;
 import Business.Warehouse.Warehouse;
 import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
+import SendEmail.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class ManageWarehouse extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private BusinessModel business;
     UserAccount user;
+    SendEmail sendomail;
     
     public ManageWarehouse(JPanel userProcessContainer, BusinessModel business) {
         initComponents();
@@ -349,6 +351,9 @@ public class ManageWarehouse extends javax.swing.JPanel {
             UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new AdminRole());
             Warehouse ware= business.getWarehouseDirectory().createWarehouseInfo(name, username, address, contact);
             populateManageWarehouseTable();
+            SendEmail se = new SendEmail(username, "Warehouse Registration");
+            se.sendEmailToUsers(username, "Warehouse Registration");
+            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
 
             txtWarehouseName.setText("");
             txtWarehouseUserName.setText("");

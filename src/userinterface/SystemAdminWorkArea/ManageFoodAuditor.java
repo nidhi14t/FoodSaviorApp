@@ -9,6 +9,7 @@ import Business.BusinessModel;
 import Business.FoodAuditor.FoodAuditor;
 import Business.Role.FoodAuditorRole;
 import Business.UserAccount.UserAccount;
+import SendEmail.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -335,6 +336,9 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
             UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new FoodAuditorRole());
             FoodAuditor fa= business.getFoodAuditorDirectory().createFoodAuditor(name, username, address, contact);
             populateManageFATable();
+            SendEmail se = new SendEmail(username, "Food Auditor Registration");
+            se.sendEmailToUsers(username, "Food Auditor Registration");
+            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
 
             txtfaName.setText("");
             txtfaUserName.setText("");

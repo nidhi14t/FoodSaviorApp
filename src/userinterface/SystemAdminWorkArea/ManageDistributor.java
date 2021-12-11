@@ -13,6 +13,7 @@ import Business.BusinessModel;
 import Business.Role.DistAdminRole;
 import javax.swing.table.DefaultTableModel;
 import Business.Distributor.Distributor;
+import SendEmail.SendEmail;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -346,6 +347,9 @@ public class ManageDistributor extends javax.swing.JPanel {
         UserAccount uacc =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new DistAdminRole());
         Distributor dist= business.getDistributorDirectory().createDistributorInfo(name, username, address, contact);
         populateManageDistributorTable();
+        SendEmail se = new SendEmail(username, "Distributor Registration");
+        se.sendEmailToUsers(username, "Distributor Registration");
+        JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
         
         dnametxt.setText("");
         mnametxt.setText("");

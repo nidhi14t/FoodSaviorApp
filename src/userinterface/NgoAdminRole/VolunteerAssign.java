@@ -36,7 +36,6 @@ public class VolunteerAssign extends javax.swing.JPanel {
         this.order = order;
         this.business = business;
         this.orgName = orgName;
-        System.out.print("orgName " + orgName);
         initComponents();
         populateOrderVolunteerTable();
     }

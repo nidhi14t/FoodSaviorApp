@@ -144,7 +144,6 @@ public class NGO {
         order.setStatus("New Order");
         order.setComment(" ");
         orderList.add(order);
-        System.out.print("order   " + orderList);
         id++;
     }
     
