@@ -65,6 +65,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         mngFoodAuditorbtn.setText("Manage Food Auditors");
+        mngFoodAuditorbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mngFoodAuditorbtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
         jLabel1.setText("System Admin Work Area");
@@ -141,6 +146,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageNgoActionPerformed
+
+    private void mngFoodAuditorbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngFoodAuditorbtnActionPerformed
+        // TODO add your handling code here:
+        ManageFoodAuditor manageFoodAuditor = new ManageFoodAuditor(userProcessContainer, businessModel);
+        userProcessContainer.add("Manage Food Auditor",manageFoodAuditor);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_mngFoodAuditorbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

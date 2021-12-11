@@ -55,9 +55,11 @@ public class PlaceOrder extends javax.swing.JPanel {
             model.setRowCount(0);
                 Object[] row = new Object[2];
                 for(DiscardedItem item:ware.getItem()){
+                    if (item.isGoodToConsume() == true) {
                      row[0] = item;
                      row[1] = item.getPrice();
-                     model.addRow(row);
+                     model.addRow(row); 
+                    }
                 }  
     }
 
@@ -92,7 +94,7 @@ public class PlaceOrder extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish Name", "Amount"
+                "Item Name", "Amount"
             }
         ));
         jScrollPane2.setViewportView(tblItems);
@@ -147,7 +149,7 @@ public class PlaceOrder extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish Name", "Amount"
+                "Item Name", "Amount"
             }
         ));
         jScrollPane1.setViewportView(tblCart);

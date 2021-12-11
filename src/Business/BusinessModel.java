@@ -34,16 +34,16 @@ public class BusinessModel extends Organization {
 
 
     public BusinessModel(NGODirectory ngoDirectory, CustomerDirectory customerDirectory, WarehouseDirectory warehouseDirectory, 
-            LogisticDirectory logisticDirectory, FoodAuditorDirectory foodAuditorDirectory, DistributorDirectory distributorDirectory, DeliveryManDirectory deliveryManDirectory) {
+            LogisticDirectory logisticDirectory, DistributorDirectory distributorDirectory, DeliveryManDirectory deliveryManDirectory, VolunteerDirectory volunteerDirectory, FoodAuditorDirectory foodAuditorDirectory) {
 
         this.ngoDirectory = ngoDirectory;
         this.customerDirectory = customerDirectory;
         this.warehouseDirectory = warehouseDirectory;
         this.distributorDirectory = distributorDirectory;
         this.logisticDirectory = logisticDirectory;
-        this.foodAuditorDirectory = foodAuditorDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.volunteerDirectory = volunteerDirectory;
+        this.foodAuditorDirectory = foodAuditorDirectory;
         business = BusinessModel.getInstance();
     }
     
@@ -68,9 +68,9 @@ public class BusinessModel extends Organization {
         warehouseDirectory = new WarehouseDirectory();
         distributorDirectory = new DistributorDirectory();
         logisticDirectory = new LogisticDirectory();
-        foodAuditorDirectory = new FoodAuditorDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
         volunteerDirectory = new VolunteerDirectory();
+        foodAuditorDirectory = new FoodAuditorDirectory();
     }
     
     public boolean checkIfUserIsUnique(String userName){
