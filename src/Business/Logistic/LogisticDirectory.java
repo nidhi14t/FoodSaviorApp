@@ -21,4 +21,13 @@ public class LogisticDirectory {
     public ArrayList<Logistic> getLogisticList() {
         return logisticList;
     }
+    
+    public Logistic createLogistic(String transport, String temperature){
+        Logistic logi = new Logistic();
+        logi.setTransport(transport);
+        logi.setTemprature(temperature);
+        logisticList.add(logi);
+        
+        return logi;
+    }
 }

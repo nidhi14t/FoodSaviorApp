@@ -28,4 +28,9 @@ public class Logistic {
     public void setTemprature(String temprature) {
         this.temprature = temprature;
     }
+    
+    @Override
+    public String toString() {
+        return transport;
+    }
 }

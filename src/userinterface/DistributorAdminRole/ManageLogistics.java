@@ -35,26 +35,23 @@ public class ManageLogistics extends javax.swing.JPanel {
             this.userProcessContainer = userProcessContainer;
             this.business = business;
             this.account = account;
-            transTable();
+            populateTable();
         
     }
     
-private void transTable() {
+private void populateTable() {
     DefaultTableModel model = (DefaultTableModel) transTable.getModel();
         
         model.setRowCount(0);
-        
-       // for()
-        for (UserAccount user : business.getUserAccountDirectory().getUserAccountList()) {
-            System.out.println(user.getRole().getClass().getName());
-            if ("Business.Role.DeliverymanRole".equals(user.getRole().getClass().getName())) {
+
+        for (Logistic logi : business.getLogisticDirectory().getLogisticList()) {
                 Object[] row = new Object[2];
                
-                row[0] = user.getName();
-                row[1] = user.getUsername();
+                row[0] = logi.getTransport();
+                row[1] = logi.getTemprature();
                 
                 model.addRow(row);
-            }
+            
         }
     }
 
@@ -177,16 +174,19 @@ private void transTable() {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        DistributorAdminWorkAreaJPanel sysAdminwjp = (DistributorAdminWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
          
-        String transport = (String)transCombobox.getSelectedItem();
+        String transport = String.valueOf(transCombobox.getSelectedItem());
         String temprature = (String)tempCombobox.getSelectedItem();
         JOptionPane.showMessageDialog(null, "Submit Successfully");
+        
+        Logistic logi= business.getLogisticDirectory().createLogistic(transport, temprature);
+        populateTable();
         
     }//GEN-LAST:event_submitBtnActionPerformed
 
