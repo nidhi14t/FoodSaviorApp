@@ -38,10 +38,8 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblDeliveryManAssign.getModel();
         
         model.setRowCount(0);
-        System.out.println("inside");
         
         for(DeliveryMan deliveryManAssign:business.getDeliveryManDirectory().getDeliveryManList()){
-               System.out.print("deliveryManAssign " + deliveryManAssign);
                Object[] row = new Object[1];
                
                 row[0] = deliveryManAssign; 

@@ -103,7 +103,6 @@ public class FoodAuditor {
         order.setStatus("New Order");
         order.setComment(" ");
         orderList.add(order);
-        System.out.print("order   " + orderList);
         id++;
     }
     

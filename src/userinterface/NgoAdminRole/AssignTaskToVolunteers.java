@@ -49,10 +49,7 @@ public class AssignTaskToVolunteers extends javax.swing.JPanel {
          
         for (NGO ngo:business.getNgoDirectory().getNGOList()) {
            
-            System.out.print("ngo.getNgoAdminUserName() " + ngo.getNgoAdminUserName());
-            System.out.print(" ngo.getNgoAdminUserName() " + userAccount.getUsername());
             if (ngo.getNgoAdminUserName().equals(userAccount.getUsername())) {
-                System.out.print("ngo.getOrderList() " + ngo.getOrderList());
                for(WarehouseOrder wo:ngo.getOrderList()){
                 Object[] row = new Object[3];
                 row[0] = wo;

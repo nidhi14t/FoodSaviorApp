@@ -11,6 +11,7 @@ import Business.BusinessModel;
 import Business.NGO.NGO;
 import Business.Role.NgoAdminRole;
 import Business.UserAccount.UserAccount;
+import SendEmail.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -331,6 +332,9 @@ public class ManageNGO extends javax.swing.JPanel {
             UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new NgoAdminRole());
             NGO ngo= business.getNgoDirectory().createNGOInfo(name, username, address, contact);
             populateManageNGOTable();
+            SendEmail se = new SendEmail(username, "NGO Registration");
+            se.sendEmailToUsers(username, "NGO Registration");
+            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
 
             txtNGOName.setText("");
             txtNGOUserName.setText("");

@@ -294,8 +294,6 @@ public class PlaceOrder extends javax.swing.JPanel {
 
         ware.addOrder(ware.getWarehouseName(), userAccount.getName(), null, items, sum , address);
         for(NGO ngo:business.getNgoDirectory().getNGOList()){
-            System.out.print("userAccount.getUsername() " + userAccount.getUsername());
-            System.out.print("ngo.getUsername()  " + ngo.getUsername());
             if(userAccount.getUsername().equals(ngo.getNgoAdminUserName())){
                 ngo.addOrder(ware.getWarehouseName(), userAccount.getName(), null, items, sum , address);
             }
