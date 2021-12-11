@@ -32,7 +32,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageLogbtn1" min="-2" pref="192" max="-2" attributes="0"/>
+                          <Component id="manageOrderbtn" min="-2" pref="192" max="-2" attributes="0"/>
                           <Component id="manageLogbtn" min="-2" pref="192" max="-2" attributes="0"/>
                           <Component id="manageDistInfoBtn" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
@@ -60,7 +60,7 @@
                   <Component id="distnamelabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="manageLogbtn1" min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="manageOrderbtn" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Component id="manageLogbtn" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageDelManbtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="manageLogbtn1">
+    <Component class="javax.swing.JButton" name="manageOrderbtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -150,7 +150,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageLogbtn1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageOrderbtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="manageDistInfoBtn">

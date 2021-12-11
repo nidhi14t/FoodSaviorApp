@@ -5,10 +5,20 @@
  */
 package Business.Logistic;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author nidhitiwari
+ * @author karpe.s@northeastern.edu
  */
 public class LogisticDirectory {
+     private ArrayList<Logistic> logisticList;
+     
+     public LogisticDirectory(){
+        logisticList = new ArrayList<Logistic>();
+    }
     
+    public ArrayList<Logistic> getLogisticList() {
+        return logisticList;
+    }
 }

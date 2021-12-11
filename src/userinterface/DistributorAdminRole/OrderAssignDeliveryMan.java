@@ -5,17 +5,49 @@
  */
 package userinterface.DistributorAdminRole;
 
+import Business.BusinessModel;
+import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryMan;
+import Business.UserAccount.UserAccount;
+import Business.WarehouseOrder.WarehouseOrder;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 19295
  */
 public class OrderAssignDeliveryMan extends javax.swing.JPanel {
 
-    /**
-     * Creates new form OrderAssignDeliveryMan
-     */
-    public OrderAssignDeliveryMan() {
+     private JPanel userProcessContainer;
+    private UserAccount account;
+    WarehouseOrder order;
+    BusinessModel business;
+    
+    public OrderAssignDeliveryMan(JPanel userProcessContainer, UserAccount account, WarehouseOrder order, BusinessModel business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.order = order;
+        this.business = business;
+        
+        tblDeliveryManAssign();
+    }
+    
+    private void tblDeliveryManAssign() {
+        delmanlabel.setText("Order ID:"+order.getOrderID());
+        DefaultTableModel model = (DefaultTableModel) tblDeliveryManAssign.getModel();
+        
+        model.setRowCount(0);
+        
+        for(DeliveryMan deliveryManAssign:business.getDeliveryManDirectory().getDeliveryManList()){
+               Object[] row = new Object[1];
+               
+                row[0] = deliveryManAssign; 
+                model.addRow(row);
+            }
     }
 
     /**
@@ -41,6 +73,11 @@ public class OrderAssignDeliveryMan extends javax.swing.JPanel {
         backbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         backbtn.setText("Back");
         backbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backbtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -62,6 +99,11 @@ public class OrderAssignDeliveryMan extends javax.swing.JPanel {
         assignordrbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         assignordrbtn.setText("Assign Order");
         assignordrbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        assignordrbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignordrbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,6 +149,37 @@ public class OrderAssignDeliveryMan extends javax.swing.JPanel {
                     .addContainerGap(216, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbtnActionPerformed
+       userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backbtnActionPerformed
+
+    private void assignordrbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignordrbtnActionPerformed
+        int selectedRow = tblDeliveryManAssign.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table");
+        }
+        else
+        {
+
+            DeliveryMan deliveryMan  = (DeliveryMan)tblDeliveryManAssign.getValueAt(selectedRow, 0);
+            deliveryMan.getOrderList().add(order);
+            order.setStatus("Assigned to Deliveryman");
+
+            for(Customer cust:business.getCustomerDirectory().getCustomerList()){
+                if(order.getCustomerName().equals(cust.getUsername())){
+                    for(WarehouseOrder order : cust.getOrderList()){
+                        order.setStatus("Assigned to Deliveryman");
+                    }
+                }
+            }
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+        }
+    }//GEN-LAST:event_assignordrbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

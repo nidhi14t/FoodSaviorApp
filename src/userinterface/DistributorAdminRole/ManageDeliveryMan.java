@@ -237,11 +237,9 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             System.out.println(user.getRole().getClass().getName());
             if ("Business.Role.DeliverymanRole".equals(user.getRole().getClass().getName())) {
                 Object[] row = new Object[3];
-               
                 row[0] = user.getName();
                 row[1] = user.getUsername();
                 row[2] = user.getPassword();
-                
                 model.addRow(row);
             }
             
@@ -256,19 +254,16 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
-
             }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
                 throw new Exception("Please enter valid  Name");
 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
-
+            JOptionPane.showMessageDialog(null, "Name is Empty");
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
-
+            JOptionPane.showMessageDialog(null, "Name is invalid");
             return;
         }
 
@@ -286,7 +281,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name is invalid");
 
             return;
         }
@@ -310,11 +305,11 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         }
 
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"User Name already exists ");
         }else{
             
         UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new DeliverymanRole());
-        DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(uname);
+        DeliveryMan deliveryMan= system.getDeliveryManDirectory().createDeliveryMan(name, uname);
         tblManageDeliMan();
         nametxt.setText("");
         unametxt.setText("");
@@ -327,8 +322,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-//        sysAdminwjp.populateTree();
+        DistributorAdminWorkAreaJPanel sysAdminwjp = (DistributorAdminWorkAreaJPanel) component;
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed
@@ -347,12 +341,12 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
+            JOptionPane.showMessageDialog(null, "Name is Empty");
 
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
+            JOptionPane.showMessageDialog(null, "Name is invalid");
 
             return;
         }
@@ -371,7 +365,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name is invalid");
 
             return;
         }
@@ -395,7 +389,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         }
 
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
+            JOptionPane.showMessageDialog(null,"User Name already exists ");
         }else{
 
             system.getUserAccountDirectory().updateUserAccount(user,name,uname,password);

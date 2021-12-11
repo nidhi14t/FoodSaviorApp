@@ -43,7 +43,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
         distnamelabel = new javax.swing.JLabel();
         manageLogbtn = new javax.swing.JButton();
         manageDelManbtn = new javax.swing.JButton();
-        manageLogbtn1 = new javax.swing.JButton();
+        manageOrderbtn = new javax.swing.JButton();
         manageDistInfoBtn = new javax.swing.JButton();
 
         distWAlabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -76,12 +76,12 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageLogbtn1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        manageLogbtn1.setText("Manage Order");
-        manageLogbtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        manageLogbtn1.addActionListener(new java.awt.event.ActionListener() {
+        manageOrderbtn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        manageOrderbtn.setText("Manage Order");
+        manageOrderbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manageOrderbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageLogbtn1ActionPerformed(evt);
+                manageOrderbtnActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageLogbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manageDistInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(283, 283, 283))
@@ -131,7 +131,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(manageLogbtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -153,18 +153,27 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageDelManbtnActionPerformed
 
     private void manageLogbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLogbtnActionPerformed
-//        ManageLogistics manageItem=new ManageLogistics(userProcessContainer,account,business);
-//        userProcessContainer.add("Manage Logistics",manageItem);
-//        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+        ManageLogistics manageItem=new ManageLogistics(userProcessContainer,account,business);
+        userProcessContainer.add("Manage Logistics",manageItem);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageLogbtnActionPerformed
 
-    private void manageLogbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLogbtn1ActionPerformed
+    private void manageOrderbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrderbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_manageLogbtn1ActionPerformed
+        ManageOrder manageOrder=new ManageOrder(userProcessContainer,account,business);
+        userProcessContainer.add("Manage Restaurants",manageOrder);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageOrderbtnActionPerformed
 
     private void manageDistInfoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDistInfoBtnActionPerformed
         // TODO add your handling code here:
+        DistributorInfo manageInfo=new DistributorInfo(userProcessContainer,account,business);
+        userProcessContainer.add("Manage Restaurants",manageInfo);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_manageDistInfoBtnActionPerformed
 
 
@@ -175,6 +184,6 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton manageDelManbtn;
     private javax.swing.JButton manageDistInfoBtn;
     private javax.swing.JButton manageLogbtn;
-    private javax.swing.JButton manageLogbtn1;
+    private javax.swing.JButton manageOrderbtn;
     // End of variables declaration//GEN-END:variables
 }
