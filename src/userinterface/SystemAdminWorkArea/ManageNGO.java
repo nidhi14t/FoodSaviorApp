@@ -8,8 +8,8 @@ package userinterface.SystemAdminWorkArea;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import Business.BusinessModel;
-import Business.Warehouse.Warehouse;
-import Business.Role.AdminRole;
+import Business.NGO.NGO;
+import Business.Role.NgoAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -20,39 +20,39 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nidhitiwari
  */
-public class ManageWarehouse extends javax.swing.JPanel {
+public class ManageNGO extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageWarehouse
+     * Creates new form ManageNGO
      */
     private JPanel userProcessContainer;
     private BusinessModel business;
     UserAccount user;
     
-    public ManageWarehouse(JPanel userProcessContainer, BusinessModel business) {
+    public ManageNGO(JPanel userProcessContainer, BusinessModel business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.business = business;
-        populateManageWarehouseTable();
+        populateManageNGOTable();
         btnConfirm.setEnabled(false);
     }
     
-    private void populateManageWarehouseTable() {
-        DefaultTableModel model = (DefaultTableModel) tblManageWarehouse.getModel();
+    private void populateManageNGOTable() {
+        DefaultTableModel model = (DefaultTableModel) tblManageNGO.getModel();
         
         model.setRowCount(0);
         
         for (UserAccount user : business.getUserAccountDirectory().getUserAccountList()) {
             
-            for (Warehouse ware:business.getWarehouseDirectory().getWarehouseList()) {
-            if ("Business.Role.AdminRole".equals(user.getRole().getClass().getName()) && ware.getAdminUserName().equals(user.getUsername())) {
+            for (NGO ngo:business.getNgoDirectory().getNGOList()) {
+            if ("Business.Role.NgoAdminRole".equals(user.getRole().getClass().getName()) && ngo.getNgoAdminUserName().equals(user.getUsername())) {
                 Object[] row = new Object[5];
                
                 row[0] = user.getName();
                 row[1] = user.getUsername();
                 row[2] = user.getPassword();
-                row[3] = ware.getWarehouseContact();
-                row[4] = ware.getWarehouseAddress();
+                row[3] = ngo.getNgoContact();
+                row[4] = ngo.getNgoAddress();
                 
                 model.addRow(row);
             }
@@ -70,55 +70,27 @@ public class ManageWarehouse extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
-        lblManageWarehouseTitle = new javax.swing.JLabel();
-        lblWarehouseName = new javax.swing.JLabel();
-        txtWarehouseName = new javax.swing.JTextField();
-        lblWarehouseUsername = new javax.swing.JLabel();
-        txtWarehouseUserName = new javax.swing.JTextField();
-        lblWarehousePassword = new javax.swing.JLabel();
-        txtWarehousePassword = new javax.swing.JTextField();
-        lblWarehouseAddress = new javax.swing.JLabel();
-        txtWarehouseAddress = new javax.swing.JTextField();
-        lblWarehouseContact = new javax.swing.JLabel();
-        txtWarehouseContact = new javax.swing.JTextField();
+        lblManageNGOTitle = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
+        lblNGOName = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblManageWarehouse = new javax.swing.JTable();
+        tblManageNGO = new javax.swing.JTable();
+        txtNGOName = new javax.swing.JTextField();
+        lblNGOUsername = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        txtNGOUserName = new javax.swing.JTextField();
         btnConfirm = new javax.swing.JButton();
+        lblNGOPassword = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
+        txtNGOPassword = new javax.swing.JTextField();
+        lblNGOAddress = new javax.swing.JLabel();
+        txtNGOAddress = new javax.swing.JTextField();
+        lblNGOContact = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        txtNGOContact = new javax.swing.JTextField();
 
-        jTextField1.setText("jTextField1");
-
-        btnBack.setBackground(new java.awt.Color(0, 153, 255));
-        btnBack.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        lblManageWarehouseTitle.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
-        lblManageWarehouseTitle.setText("Manage Warehouse ");
-
-        lblWarehouseName.setText("Warehouse Name");
-
-        lblWarehouseUsername.setText("Manager Username");
-
-        lblWarehousePassword.setText("Manager Password");
-
-        lblWarehouseAddress.setText("Warehouse Address");
-
-        lblWarehouseContact.setText("Warehouse Contact");
-
-        txtWarehouseContact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtWarehouseContactActionPerformed(evt);
-            }
-        });
+        lblManageNGOTitle.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lblManageNGOTitle.setText("Manage NGO");
 
         btnSubmit.setBackground(new java.awt.Color(0, 153, 255));
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
@@ -129,7 +101,9 @@ public class ManageWarehouse extends javax.swing.JPanel {
             }
         });
 
-        tblManageWarehouse.setModel(new javax.swing.table.DefaultTableModel(
+        lblNGOName.setText("NGO Name");
+
+        tblManageNGO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -137,10 +111,12 @@ public class ManageWarehouse extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Warehouse Name", "Username", "Password", "Contact", "Address"
+                "NGO Name", "Username", "Password", "Contact", "Address"
             }
         ));
-        jScrollPane1.setViewportView(tblManageWarehouse);
+        jScrollPane1.setViewportView(tblManageNGO);
+
+        lblNGOUsername.setText("Username");
 
         btnUpdate.setBackground(new java.awt.Color(0, 153, 255));
         btnUpdate.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
@@ -160,12 +136,33 @@ public class ManageWarehouse extends javax.swing.JPanel {
             }
         });
 
+        lblNGOPassword.setText("Password");
+
         btnDelete.setBackground(new java.awt.Color(204, 51, 0));
         btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        lblNGOAddress.setText("NGO Address");
+
+        lblNGOContact.setText("NGO Contact");
+
+        btnBack.setBackground(new java.awt.Color(0, 153, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        txtNGOContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNGOContactActionPerformed(evt);
             }
         });
 
@@ -178,6 +175,7 @@ public class ManageWarehouse extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnBack)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,31 +183,28 @@ public class ManageWarehouse extends javax.swing.JPanel {
                                 .addComponent(btnConfirm)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnDelete)
-                                .addGap(17, 17, 17))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(130, 130, 130))))
+                                .addGap(17, 17, 17))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblWarehouseUsername)
-                                    .addComponent(lblWarehouseName)
-                                    .addComponent(lblWarehousePassword)
-                                    .addComponent(lblWarehouseContact)
-                                    .addComponent(lblWarehouseAddress))
+                                    .addComponent(lblNGOUsername)
+                                    .addComponent(lblNGOName)
+                                    .addComponent(lblNGOPassword)
+                                    .addComponent(lblNGOContact)
+                                    .addComponent(lblNGOAddress))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtWarehouseName)
-                                    .addComponent(txtWarehouseUserName)
-                                    .addComponent(txtWarehousePassword)
-                                    .addComponent(txtWarehouseAddress)
-                                    .addComponent(txtWarehouseContact, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNGOName)
+                                    .addComponent(txtNGOUserName)
+                                    .addComponent(txtNGOPassword)
+                                    .addComponent(txtNGOAddress)
+                                    .addComponent(txtNGOContact, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
-                                .addComponent(lblManageWarehouseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(lblManageNGOTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -218,27 +213,27 @@ public class ManageWarehouse extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(btnBack)
                 .addGap(22, 22, 22)
-                .addComponent(lblManageWarehouseTitle)
+                .addComponent(lblManageNGOTitle)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWarehouseName)
-                    .addComponent(txtWarehouseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNGOName)
+                    .addComponent(txtNGOName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtWarehouseUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWarehouseUsername))
+                    .addComponent(txtNGOUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNGOUsername))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtWarehousePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWarehousePassword))
+                    .addComponent(txtNGOPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNGOPassword))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWarehouseAddress)
-                    .addComponent(txtWarehouseAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNGOAddress)
+                    .addComponent(txtNGOAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWarehouseContact)
-                    .addComponent(txtWarehouseContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNGOContact)
+                    .addComponent(txtNGOContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -248,30 +243,17 @@ public class ManageWarehouse extends javax.swing.JPanel {
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void txtWarehouseContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWarehouseContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWarehouseContactActionPerformed
-
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String name = txtWarehouseName.getText();
-        String username=txtWarehouseUserName.getText();
-        String password=txtWarehousePassword.getText();
-        String address=txtWarehouseAddress.getText();
-        String contact=txtWarehouseContact.getText();
+        String name = txtNGOName.getText();
+        String username=txtNGOUserName.getText();
+        String password=txtNGOPassword.getText();
+        String address=txtNGOAddress.getText();
+        String contact=txtNGOContact.getText();
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
 
         try {
@@ -346,30 +328,30 @@ public class ManageWarehouse extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"User Name already exists ");
         }else{
 
-            UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new AdminRole());
-            Warehouse ware= business.getWarehouseDirectory().createWarehouseInfo(name, username, address, contact);
-            populateManageWarehouseTable();
+            UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password,null, new NgoAdminRole());
+            NGO ngo= business.getNgoDirectory().createNGOInfo(name, username, address, contact);
+            populateManageNGOTable();
 
-            txtWarehouseName.setText("");
-            txtWarehouseUserName.setText("");
-            txtWarehousePassword.setText("");
-            txtWarehouseAddress.setText("");
-            txtWarehouseContact.setText("");
+            txtNGOName.setText("");
+            txtNGOUserName.setText("");
+            txtNGOPassword.setText("");
+            txtNGOAddress.setText("");
+            txtNGOContact.setText("");
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectRow = tblManageWarehouse.getSelectedRow();
+        int selectRow = tblManageNGO.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) tblManageWarehouse.getValueAt(selectRow, 1);
-            String pwd= (String) tblManageWarehouse.getValueAt(selectRow, 2);
+            String username= (String) tblManageNGO.getValueAt(selectRow, 1);
+            String pwd= (String) tblManageNGO.getValueAt(selectRow, 2);
             user=business.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtWarehouseName.setText(user.getName()+"");
-            txtWarehouseUserName.setText(user.getUsername()+"");
-            txtWarehousePassword.setText(user.getPassword()+"");
+            txtNGOName.setText(user.getName()+"");
+            txtNGOUserName.setText(user.getUsername()+"");
+            txtNGOPassword.setText(user.getPassword()+"");
 
         }
         else {
@@ -384,9 +366,9 @@ public class ManageWarehouse extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        String name = txtWarehouseName.getText();
-        String username=txtWarehouseUserName.getText();
-        String password=txtWarehousePassword.getText();
+        String name = txtNGOName.getText();
+        String username=txtNGOUserName.getText();
+        String password=txtNGOPassword.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
 
@@ -436,36 +418,49 @@ public class ManageWarehouse extends javax.swing.JPanel {
         }
 
         business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
-        populateManageWarehouseTable();
+        populateManageNGOTable();
         btnSubmit.setEnabled(true);
         btnDelete.setEnabled(true);
         btnUpdate.setEnabled(true);
         btnConfirm.setEnabled(false);
-        txtWarehouseName.setText("");
-        txtWarehouseUserName.setText("");
-        txtWarehousePassword.setText("");
+        txtNGOName.setText("");
+        txtNGOUserName.setText("");
+        txtNGOPassword.setText("");
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblManageWarehouse.getSelectedRow();
+        int selectedRow = tblManageNGO.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
             int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm Delete ? ","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
-                String username= (String) tblManageWarehouse.getValueAt(selectedRow, 1);
-                String pwd= (String) tblManageWarehouse.getValueAt(selectedRow, 2);
+                String username= (String) tblManageNGO.getValueAt(selectedRow, 1);
+                String pwd= (String) tblManageNGO.getValueAt(selectedRow, 2);
                 UserAccount user=business.getUserAccountDirectory().authenticateUser(username, pwd);
 
                 business.getUserAccountDirectory().deleteUserAccount(user);
-//                business.getCustomerDirectory().deleteCustomer(user.getUsername());
-                business.getWarehouseDirectory().deleteWarehouse(username);
+                //                business.getCustomerDirectory().deleteCustomer(user.getUsername());
+                business.getNgoDirectory().deleteNGO(username);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Row to delete!");
         }
-        populateManageWarehouseTable();
+        populateManageNGOTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtNGOContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNGOContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNGOContactActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -475,18 +470,17 @@ public class ManageWarehouse extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblManageWarehouseTitle;
-    private javax.swing.JLabel lblWarehouseAddress;
-    private javax.swing.JLabel lblWarehouseContact;
-    private javax.swing.JLabel lblWarehouseName;
-    private javax.swing.JLabel lblWarehousePassword;
-    private javax.swing.JLabel lblWarehouseUsername;
-    private javax.swing.JTable tblManageWarehouse;
-    private javax.swing.JTextField txtWarehouseAddress;
-    private javax.swing.JTextField txtWarehouseContact;
-    private javax.swing.JTextField txtWarehouseName;
-    private javax.swing.JTextField txtWarehousePassword;
-    private javax.swing.JTextField txtWarehouseUserName;
+    private javax.swing.JLabel lblManageNGOTitle;
+    private javax.swing.JLabel lblNGOAddress;
+    private javax.swing.JLabel lblNGOContact;
+    private javax.swing.JLabel lblNGOName;
+    private javax.swing.JLabel lblNGOPassword;
+    private javax.swing.JLabel lblNGOUsername;
+    private javax.swing.JTable tblManageNGO;
+    private javax.swing.JTextField txtNGOAddress;
+    private javax.swing.JTextField txtNGOContact;
+    private javax.swing.JTextField txtNGOName;
+    private javax.swing.JTextField txtNGOPassword;
+    private javax.swing.JTextField txtNGOUserName;
     // End of variables declaration//GEN-END:variables
 }

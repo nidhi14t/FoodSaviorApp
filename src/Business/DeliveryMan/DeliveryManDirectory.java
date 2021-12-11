@@ -42,8 +42,9 @@ public class DeliveryManDirectory {
         return deliveryMan;
     }
     
-    
     public DeliveryMan createDeliveryMan(String name, String username){
+        System.out.println("String name " + name);
+        System.out.println("String username " + username);
         DeliveryMan deli = new DeliveryMan();
         deli.setName(name);
         deli.setUserName(username);

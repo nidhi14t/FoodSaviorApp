@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DistributorAdminRole;
+package userinterface.NgoAdminRole;
 
 import Business.BusinessModel;
-import Business.DeliveryMan.DeliveryMan;
-import Business.Role.DeliveryManRole;
+import Business.Role.VolunteerRole;
 import Business.UserAccount.UserAccount;
+import Business.Volunteer.Volunteer;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -20,29 +20,29 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nidhitiwari
  */
-public class ManageDeliveryMan extends javax.swing.JPanel {
+public class ManageVolunteer extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageDeliveryMan
+     * Creates new form ManageVolunteer
      */
     private JPanel userProcessContainer;
     private BusinessModel business;
     private UserAccount user;
-    public ManageDeliveryMan(JPanel userProcessContainer, BusinessModel business) {
+    public ManageVolunteer(JPanel userProcessContainer,BusinessModel business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.business = business;
-        populateManageDeliveryManTable();
+        populateManageVolunteerTable();
         btnConfirm.setEnabled(false);
     }
     
-    private void populateManageDeliveryManTable() {
-        DefaultTableModel model = (DefaultTableModel) tblManageDeli.getModel();
+    private void populateManageVolunteerTable() {
+        DefaultTableModel model = (DefaultTableModel) tblManageVolunteer.getModel();
         
         model.setRowCount(0);
         
         for (UserAccount user : business.getUserAccountDirectory().getUserAccountList()) {
-            if ("Business.Role.DeliveryManRole".equals(user.getRole().getClass().getName())) {
+            if ("Business.Role.VolunteerRole".equals(user.getRole().getClass().getName())) {
                 Object[] row = new Object[3];
                
                 row[0] = user.getName();
@@ -64,47 +64,20 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnDelete = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        lblManageCustomerTitle = new javax.swing.JLabel();
-        lblRestaurantName = new javax.swing.JLabel();
-        lblRestaurantUsername = new javax.swing.JLabel();
-        lblRestaurantPassword = new javax.swing.JLabel();
-        txtDeliveryManName = new javax.swing.JTextField();
-        txtDeliveryManUserName = new javax.swing.JTextField();
-        txtDeliveryManPassword = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblManageDeli = new javax.swing.JTable();
-
-        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        btnBack.setBackground(new java.awt.Color(0, 153, 255));
-        btnBack.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        lblManageCustomerTitle.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
-        lblManageCustomerTitle.setText("Manage Delivery Man");
-
-        lblRestaurantName.setText("Delivery Man Name");
-
-        lblRestaurantUsername.setText("Username");
-
-        lblRestaurantPassword.setText("Password");
+        tblManageVolunteer = new javax.swing.JTable();
+        lblManageCustomerTitle = new javax.swing.JLabel();
+        lblVolunteerName = new javax.swing.JLabel();
+        lblVolunteerUsername = new javax.swing.JLabel();
+        lblVolunteerPassword = new javax.swing.JLabel();
+        txtVolunteerName = new javax.swing.JTextField();
+        txtVolunteerUserName = new javax.swing.JTextField();
+        txtVolunteerPassword = new javax.swing.JTextField();
 
         btnUpdate.setBackground(new java.awt.Color(0, 153, 255));
         btnUpdate.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
@@ -124,6 +97,15 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         btnConfirm.setBackground(new java.awt.Color(0, 153, 255));
         btnConfirm.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
         btnConfirm.setText("Confirm Update");
@@ -133,7 +115,16 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
             }
         });
 
-        tblManageDeli.setModel(new javax.swing.table.DefaultTableModel(
+        btnBack.setBackground(new java.awt.Color(0, 153, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        tblManageVolunteer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -141,10 +132,19 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "DeliveryMan Name", "Username", "Password"
+                "Volunteer Name", "Username", "Password"
             }
         ));
-        jScrollPane1.setViewportView(tblManageDeli);
+        jScrollPane1.setViewportView(tblManageVolunteer);
+
+        lblManageCustomerTitle.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lblManageCustomerTitle.setText("Manage NGO Volunteer  ");
+
+        lblVolunteerName.setText("Volunteer Name");
+
+        lblVolunteerUsername.setText("Username");
+
+        lblVolunteerPassword.setText("Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,16 +155,16 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRestaurantName)
+                            .addComponent(lblVolunteerName)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(lblRestaurantPassword))
-                            .addComponent(lblRestaurantUsername))
+                                .addComponent(lblVolunteerPassword))
+                            .addComponent(lblVolunteerUsername))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDeliveryManName, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                            .addComponent(txtDeliveryManUserName)
-                            .addComponent(txtDeliveryManPassword)
+                            .addComponent(txtVolunteerName, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(txtVolunteerUserName)
+                            .addComponent(txtVolunteerPassword)
                             .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
@@ -194,15 +194,15 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRestaurantName)
-                            .addComponent(txtDeliveryManName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblVolunteerName)
+                            .addComponent(txtVolunteerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRestaurantUsername)
-                            .addComponent(txtDeliveryManUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblVolunteerUsername)
+                            .addComponent(txtVolunteerUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
-                        .addComponent(lblRestaurantPassword))
-                    .addComponent(txtDeliveryManPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblVolunteerPassword))
+                    .addComponent(txtVolunteerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -212,52 +212,22 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblManageDeli.getSelectedRow();
-        if(selectedRow>=0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm Delete ? ","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
-                String username= (String) tblManageDeli.getValueAt(selectedRow, 1);
-                String pwd= (String) tblManageDeli.getValueAt(selectedRow, 2);
-                UserAccount user=business.getUserAccountDirectory().authenticateUser(username, pwd);
-                business.getUserAccountDirectory().deleteUserAccount(user);
-                business.getDeliveryManDirectory().deleteDeliveryMan(user.getUsername());
-
-                populateManageDeliveryManTable();
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-        }
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:    
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        DistributorAdminWorkAreaJPanel distAdminwjp = (DistributorAdminWorkAreaJPanel) component;
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectRow = tblManageDeli.getSelectedRow();
+        int selectRow = tblManageVolunteer.getSelectedRow();
 
         if(selectRow>=0){
-            String username= (String) tblManageDeli.getValueAt(selectRow, 1);
-            String pwd= (String) tblManageDeli.getValueAt(selectRow, 2);
+            String username= (String) tblManageVolunteer.getValueAt(selectRow, 1);
+            String pwd= (String) tblManageVolunteer.getValueAt(selectRow, 2);
             user=business.getUserAccountDirectory().authenticateUser(username, pwd);
 
-            txtDeliveryManName.setText(user.getName()+"");
-            txtDeliveryManUserName.setText(user.getUsername()+"");
-            txtDeliveryManPassword.setText(user.getPassword()+"");
+            txtVolunteerName.setText(user.getName()+"");
+            txtVolunteerUserName.setText(user.getUsername()+"");
+            txtVolunteerPassword.setText(user.getPassword()+"");
 
         }
         else {
@@ -272,9 +242,9 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String name = txtDeliveryManName.getText();
-        String username=txtDeliveryManUserName.getText();
-        String password=txtDeliveryManPassword.getText();
+        String name = txtVolunteerName.getText();
+        String username=txtVolunteerUserName.getText();
+        String password=txtVolunteerPassword.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
 
@@ -324,23 +294,43 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         }
 
         if (business.getUserAccountDirectory().checkIfUsernameIsUnique(username)==false) {
-            JOptionPane.showMessageDialog(null,"User Name already exists ");
+            JOptionPane.showMessageDialog(null,"  User Name already exists ");
         }else{
 
-            UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name, username,password, null, new DeliveryManRole());
-            DeliveryMan deliveryMan= business.getDeliveryManDirectory().createDeliveryMan(name, username);
-            populateManageDeliveryManTable();
-            txtDeliveryManName.setText("");
-            txtDeliveryManUserName.setText("");
-            txtDeliveryManPassword.setText("");
+            UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name, username,password, null, new VolunteerRole());
+            Volunteer volunteer= business.getVolunteerDirectory().createVolunteer(name, username);
+            populateManageVolunteerTable();
+            txtVolunteerName.setText("");
+            txtVolunteerUserName.setText("");
+            txtVolunteerPassword.setText("");
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblManageVolunteer.getSelectedRow();
+        if(selectedRow>=0){
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm Delete ? ","Warning",selectionButton);
+            if(selectionResult == JOptionPane.YES_OPTION){
+                String username= (String) tblManageVolunteer.getValueAt(selectedRow, 1);
+                String pwd= (String) tblManageVolunteer.getValueAt(selectedRow, 2);
+                UserAccount user=business.getUserAccountDirectory().authenticateUser(username, pwd);
+                business.getUserAccountDirectory().deleteUserAccount(user);
+                business.getVolunteerDirectory().deleteVolunteer(user.getUsername());
+
+                populateManageVolunteerTable();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        String name = txtDeliveryManName.getText();
-        String username=txtDeliveryManUserName.getText();
-        String password=txtDeliveryManPassword.getText();
+        String name = txtVolunteerName.getText();
+        String username=txtVolunteerUserName.getText();
+        String password=txtVolunteerPassword.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
 
@@ -390,15 +380,25 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         }
 
         business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
-        populateManageDeliveryManTable();
+        populateManageVolunteerTable();
         btnSubmit.setEnabled(true);
         btnDelete.setEnabled(true);
         btnUpdate.setEnabled(true);
         btnConfirm.setEnabled(false);
-        txtDeliveryManName.setText("");
-        txtDeliveryManUserName.setText("");
-        txtDeliveryManPassword.setText("");
+        txtVolunteerName.setText("");
+        txtVolunteerUserName.setText("");
+        txtVolunteerPassword.setText("");
     }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        NgoAdminWorkAreaJPanel sysAdminwjp = (NgoAdminWorkAreaJPanel) component;
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -409,12 +409,12 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblManageCustomerTitle;
-    private javax.swing.JLabel lblRestaurantName;
-    private javax.swing.JLabel lblRestaurantPassword;
-    private javax.swing.JLabel lblRestaurantUsername;
-    private javax.swing.JTable tblManageDeli;
-    private javax.swing.JTextField txtDeliveryManName;
-    private javax.swing.JTextField txtDeliveryManPassword;
-    private javax.swing.JTextField txtDeliveryManUserName;
+    private javax.swing.JLabel lblVolunteerName;
+    private javax.swing.JLabel lblVolunteerPassword;
+    private javax.swing.JLabel lblVolunteerUsername;
+    private javax.swing.JTable tblManageVolunteer;
+    private javax.swing.JTextField txtVolunteerName;
+    private javax.swing.JTextField txtVolunteerPassword;
+    private javax.swing.JTextField txtVolunteerUserName;
     // End of variables declaration//GEN-END:variables
 }

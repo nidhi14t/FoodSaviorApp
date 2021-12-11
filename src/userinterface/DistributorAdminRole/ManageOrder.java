@@ -54,7 +54,7 @@ public class ManageOrder extends javax.swing.JPanel {
         
         for (Warehouse ware:business.getWarehouseDirectory().getWarehouseList()) {
            
-            if (ware.getAdminUserName().equals(account.getUsername())) {
+//            if (ware.getAdminUserName().equals(account.getUsername())) {
                for(WarehouseOrder order:ware.getOrderList()){
                 Object[] row = new Object[5];
                 row[0] = order;
@@ -65,7 +65,8 @@ public class ManageOrder extends javax.swing.JPanel {
                 model.addRow(row);
                }
                 
-            }
+//            }
+            
         }
     }
 

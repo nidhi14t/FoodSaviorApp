@@ -3,26 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.DeliveryMan;
+package Business.Volunteer;
 
+import Business.DiscardedItem.DiscardedItem;
 import Business.WarehouseOrder.WarehouseOrder;
 import java.util.ArrayList;
-import Business.DiscardedItem.DiscardedItem;
 
 /**
  *
  * @author nidhitiwari
  */
-public class DeliveryMan {
-    
+public class Volunteer {
     private String name;
     private String firstName;
     private String lastName;
-    private String UserName;
+    private String userName;
     private int id = 1001;
-    private int deliId = 101;
+    private int volunteerId = 101;
     private static int count = 1001;
     private static int deliCount = 101;
+    private String contact;
+    private String address;
+    private String city;
+    private String state;
+    private String emailId;
 
     public String getName() {
         return name;
@@ -59,38 +63,36 @@ public class DeliveryMan {
     }
     
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
     
-    public DeliveryMan(String UserName){
-        this.UserName=UserName;
+    public Volunteer(String UserName){
+        this.userName=UserName;
         orderList = new ArrayList<WarehouseOrder>();
-        deliId++;
+        volunteerId++;
     }
     
-    public DeliveryMan(){
+    public Volunteer(){
         orderList = new ArrayList<WarehouseOrder>();
-        deliId++;
+        volunteerId++;
     }
      
-    public void addOrder(String warehouseName, String ngoName, String deliveryMan, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
+    public void addOrder(String warehouseName, String customerName, String volunteer, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
         WarehouseOrder order=new WarehouseOrder();
         order.setOrderID(String.valueOf(id));
-        order.setNgoName(ngoName);
+        order.setCustomerName(customerName);
         order.setWarehouseName(warehouseName);
-        order.setDeliveryMan(deliveryMan);
+        order.setVolunteer(volunteer);
         order.setWarehouseOrder(Order);
         order.setPrice(price);
         order.setDeliveryAddress(deliveryAddress);
         order.setStatus("New Order");
         orderList.add(order);
         id++;
-//        id = count;
-//        count++;
     }
 
     public String getContact() {
@@ -132,16 +134,9 @@ public class DeliveryMan {
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
-
-    private String contact;
-    private String address;
-    private String city;
-    private String state;
-    private String emailId;
     
     @Override
     public String toString() {
         return name;
     }
 }
-

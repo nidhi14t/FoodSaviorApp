@@ -13,6 +13,7 @@ import Business.Logistic.LogisticDirectory;
 import Business.NGO.NGODirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Volunteer.VolunteerDirectory;
 import Business.Warehouse.WarehouseDirectory;
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class BusinessModel extends Organization {
     private FoodAuditorDirectory foodAuditorDirectory;
     private DistributorDirectory distributorDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private VolunteerDirectory volunteerDirectory;
 
 
     public BusinessModel(NGODirectory ngoDirectory, CustomerDirectory customerDirectory, WarehouseDirectory warehouseDirectory, 
@@ -41,6 +43,7 @@ public class BusinessModel extends Organization {
         this.logisticDirectory = logisticDirectory;
         this.foodAuditorDirectory = foodAuditorDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
+        this.volunteerDirectory = volunteerDirectory;
         business = BusinessModel.getInstance();
     }
     
@@ -67,6 +70,7 @@ public class BusinessModel extends Organization {
         logisticDirectory = new LogisticDirectory();
         foodAuditorDirectory = new FoodAuditorDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
+        volunteerDirectory = new VolunteerDirectory();
     }
     
     public boolean checkIfUserIsUnique(String userName){
@@ -136,6 +140,14 @@ public class BusinessModel extends Organization {
 
     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
+    }
+    
+    public VolunteerDirectory getVolunteerDirectory() {
+        return volunteerDirectory;
+    }
+
+    public void setVolunteerDirectory(VolunteerDirectory volunteerDirectory) {
+        this.volunteerDirectory = volunteerDirectory;
     }
     
 }

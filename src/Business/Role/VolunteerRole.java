@@ -8,15 +8,15 @@ package Business.Role;
 import Business.BusinessModel;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
+import userinterface.VolunteerRole.VolunteerWorkAreaJPanel;
 
 /**
  *
- * @author 19295
+ * @author nidhitiwari
  */
-public class DeliveryManRole extends Role {
+public class VolunteerRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, BusinessModel business) {
-        return new DeliveryManWorkAreaJPanel(userProcessContainer,account, business);
-    }
+        return new VolunteerWorkAreaJPanel(userProcessContainer, account, business);
+    } 
 }

@@ -165,7 +165,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
         userProcessContainer.add("Manage Restaurants",manageOrder);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_manageOrderbtnActionPerformed
+    }//GEN-LAST:event_manageLogbtn1ActionPerformed
 
     private void manageDistInfoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDistInfoBtnActionPerformed
         // TODO add your handling code here:
