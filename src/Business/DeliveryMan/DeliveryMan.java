@@ -5,7 +5,6 @@
  */
 package Business.DeliveryMan;
 
-import Business.Warehouse.Warehouse;
 import Business.WarehouseOrder.WarehouseOrder;
 import java.util.ArrayList;
 import Business.DiscardedItem.DiscardedItem;
@@ -78,11 +77,11 @@ public class DeliveryMan {
         deliId++;
     }
      
-    public void addOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
+    public void addOrder(String warehouseName, String ngoName, String deliveryMan, ArrayList<DiscardedItem> Order, Double price, String deliveryAddress) {
         WarehouseOrder order=new WarehouseOrder();
         order.setOrderID(String.valueOf(id));
-        order.setCustomerName(customerName);
-        order.setWarehouseName(restaurantName);
+        order.setNgoName(ngoName);
+        order.setWarehouseName(warehouseName);
         order.setDeliveryMan(deliveryMan);
         order.setWarehouseOrder(Order);
         order.setPrice(price);
