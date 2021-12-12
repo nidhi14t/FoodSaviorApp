@@ -353,7 +353,7 @@ public class ManageWarehouse extends javax.swing.JPanel {
             populateManageWarehouseTable();
             SendEmail se = new SendEmail(username, "Warehouse Registration");
             se.sendEmailToUsers(username, "Warehouse Registration");
-            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
+            JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
 
             txtWarehouseName.setText("");
             txtWarehouseUserName.setText("");

@@ -9,6 +9,7 @@ import Business.BusinessModel;
 import Business.Customer.Customer;
 import Business.Role.CustomerRole;
 import Business.UserAccount.UserAccount;
+import SendEmail.SendEmail;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.regex.Pattern;
@@ -25,12 +26,12 @@ public class RegisterCustomer extends javax.swing.JPanel {
      * Creates new form RegisterCustomer
      */
     
-    private JPanel userProcessContainer;
     private UserAccount userAccount;
     BusinessModel business;
     
-    public RegisterCustomer() {
+    public RegisterCustomer(BusinessModel business) {
         initComponents();
+        this.business = business;
     }
 
 
@@ -46,12 +47,11 @@ public class RegisterCustomer extends javax.swing.JPanel {
         lblManageCustomerTitle = new javax.swing.JLabel();
         lblCustomerFirstName = new javax.swing.JLabel();
         lblCustomerUsername = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         lblCustomerPassword = new javax.swing.JLabel();
         txtCustomerFirstName = new javax.swing.JTextField();
         txtCustomerUsername = new javax.swing.JTextField();
-        txtCustomerPassword = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        txtCustomerPassword = new javax.swing.JPasswordField();
 
         lblManageCustomerTitle.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         lblManageCustomerTitle.setText("Register Customer");
@@ -62,24 +62,12 @@ public class RegisterCustomer extends javax.swing.JPanel {
         lblCustomerUsername.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblCustomerUsername.setText("Username");
 
-        btnBack.setBackground(new java.awt.Color(0, 153, 255));
-        btnBack.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         lblCustomerPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblCustomerPassword.setText("Password");
 
         txtCustomerFirstName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         txtCustomerUsername.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-
-        txtCustomerPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         btnSubmit.setBackground(new java.awt.Color(0, 153, 255));
         btnSubmit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -91,66 +79,57 @@ public class RegisterCustomer extends javax.swing.JPanel {
             }
         });
 
+        txtCustomerPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCustomerFirstName)
-                    .addComponent(lblCustomerUsername)
-                    .addComponent(lblCustomerPassword))
-                .addGap(137, 137, 137)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtCustomerUsername)
-                    .addComponent(txtCustomerPassword)
-                    .addComponent(txtCustomerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblManageCustomerTitle)
-                .addGap(144, 144, 144))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCustomerUsername)
+                            .addComponent(lblCustomerFirstName)
+                            .addComponent(lblCustomerPassword))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCustomerUsername)
+                            .addComponent(txtCustomerFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(txtCustomerPassword)
+                            .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(lblManageCustomerTitle)))
+                .addGap(187, 187, 187))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(lblManageCustomerTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(37, 37, 37)
+                .addComponent(lblManageCustomerTitle)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCustomerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerFirstName))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerUsername)
                     .addComponent(txtCustomerUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerPassword)
-                    .addComponent(txtCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                    .addComponent(txtCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
@@ -211,6 +190,9 @@ public class RegisterCustomer extends javax.swing.JPanel {
 
             UserAccount ua1 =business.getUserAccountDirectory().createUserAccount(name,username,password, null, new CustomerRole());
             Customer cust= business.getCustomerDirectory().createCustomer(name,username);
+            SendEmail se = new SendEmail(username, "Customer Registration");
+            se.sendEmailToCustomer(username, "Customer Registration", password);
+            JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
 
             txtCustomerFirstName.setText("");
             txtCustomerUsername.setText("");
@@ -218,16 +200,19 @@ public class RegisterCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void txtCustomerPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerPasswordActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel lblCustomerFirstName;
     private javax.swing.JLabel lblCustomerPassword;
     private javax.swing.JLabel lblCustomerUsername;
     private javax.swing.JLabel lblManageCustomerTitle;
     private javax.swing.JTextField txtCustomerFirstName;
-    private javax.swing.JTextField txtCustomerPassword;
+    private javax.swing.JPasswordField txtCustomerPassword;
     private javax.swing.JTextField txtCustomerUsername;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,6 +10,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.CustomerRole.RegisterCustomer;
 /**
  *
  * @author nidhitiwari
@@ -73,6 +74,11 @@ public class MainJFrame extends javax.swing.JFrame {
         lblNewUser.setText("Not a User ? Register ?  ");
 
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanel1Layout = new javax.swing.GroupLayout(JPanel1);
         JPanel1.setLayout(JPanel1Layout);
@@ -185,6 +191,14 @@ public class MainJFrame extends javax.swing.JFrame {
         crdLyt.next(container);
         dB4OUtil.storeSystem(businessModel);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisterCustomer rc = new RegisterCustomer(businessModel);
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add(rc);
+        layout.next(container);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     /**
      * @param args the command line arguments

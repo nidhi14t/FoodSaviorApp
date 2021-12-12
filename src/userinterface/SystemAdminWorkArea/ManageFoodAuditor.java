@@ -338,7 +338,7 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
             populateManageFATable();
             SendEmail se = new SendEmail(username, "Food Auditor Registration");
             se.sendEmailToUsers(username, "Food Auditor Registration");
-            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
+            JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
 
             txtfaName.setText("");
             txtfaUserName.setText("");

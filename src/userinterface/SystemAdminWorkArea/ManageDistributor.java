@@ -349,7 +349,7 @@ public class ManageDistributor extends javax.swing.JPanel {
         populateManageDistributorTable();
         SendEmail se = new SendEmail(username, "Distributor Registration");
         se.sendEmailToUsers(username, "Distributor Registration");
-        JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
+        JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
         
         dnametxt.setText("");
         mnametxt.setText("");

@@ -23,6 +23,15 @@ public class SendEmail {
     private String fromEmail;
     private String fromEmailPassword;
     private String subject;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getToEmail() {
         return toEmail;
@@ -61,6 +70,12 @@ public class SendEmail {
         this.subject = subject;
     }
     
+    public SendEmail(String toEmail, String subject, String password){
+        this.toEmail=toEmail;
+        this.subject = subject;
+        this.password = password;
+    }
+    
     public void sendEmailToUsers(String toEmail, String subject) {
         SendEmail se = new SendEmail(toEmail, subject);
         se.setToEmail(toEmail);
@@ -88,6 +103,41 @@ public class SendEmail {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(getToEmail()));
             message.setSubject(getSubject());
             message.setText("Congratulations You have been registered with our app Food Savior");
+            Transport.send(message);
+              
+        } catch(Exception e) {
+            System.out.println("Email does not exist");
+        }
+    }
+    
+    public void sendEmailToCustomer(String toEmail, String subject, String password) {
+        SendEmail se = new SendEmail(toEmail, subject, password);
+        se.setToEmail(toEmail);
+        se.setSubject(subject);
+        se.setPassword(password);
+        
+        Properties pro = new Properties();
+        pro.put("mail.smtp.auth", "true");
+        pro.put("mail.smtp.starttls.enable", "true");
+        pro.put("mail.smtp.host", "smtp.gmail.com");
+        pro.put("mail.smtp.port", "587");
+        
+        String fromEmail = "foodsavior5100@gmail.com";
+        String fromEmailPass = "5100food";
+        
+        
+        Session session = Session.getDefaultInstance(pro, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, fromEmailPass);
+            }
+        });
+        
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(fromEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(getToEmail()));
+            message.setSubject(getSubject());
+            message.setText("Congratulations You have been registered with our app Food Savior" + "Your password is " + password);
             Transport.send(message);
               
         } catch(Exception e) {
