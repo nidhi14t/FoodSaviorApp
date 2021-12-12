@@ -60,6 +60,11 @@ public class VolunteerDirectory {
         return vol;
     }
     
+        public void updateVolunteer(Volunteer volt, String name, String username){
+        volt.setName(name);
+        volt.setUserName(username);
+    }
+    
     public Volunteer getDeliveryMan(String firstName){
         for(Volunteer vol: volunteerList){
             if(vol.getFirstName().equalsIgnoreCase(firstName)){

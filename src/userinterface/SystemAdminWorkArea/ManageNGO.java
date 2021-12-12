@@ -29,6 +29,7 @@ public class ManageNGO extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private BusinessModel business;
     UserAccount user;
+    NGO ngo;
     
     public ManageNGO(JPanel userProcessContainer, BusinessModel business) {
         initComponents();
@@ -227,9 +228,7 @@ public class ManageNGO extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblManageNGOTitle)
                         .addGap(73, 73, 73)
@@ -251,8 +250,8 @@ public class ManageNGO extends javax.swing.JPanel {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNGOContact)
-                            .addComponent(txtNGOContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)))
+                            .addComponent(txtNGOContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,27 +273,29 @@ public class ManageNGO extends javax.swing.JPanel {
         String password=txtNGOPassword.getText();
         String address=txtNGOAddress.getText();
         String contact=txtNGOContact.getText();
+        
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("NGO Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid NGO Name");
 
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "NGO Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "NGO Name is invalid");
 
             return;
         }
@@ -304,7 +305,7 @@ public class ManageNGO extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
                 throw new Exception("Please enter valid User Name");
 
             }
@@ -314,7 +315,7 @@ public class ManageNGO extends javax.swing.JPanel {
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e){
 
             JOptionPane.showMessageDialog(null, "User Name is invalid");
 
@@ -392,13 +393,16 @@ public class ManageNGO extends javax.swing.JPanel {
         String name = txtNGOName.getText();
         String username=txtNGOUserName.getText();
         String password=txtNGOPassword.getText();
+        String address=txtNGOAddress.getText();
+        String contact=txtNGOContact.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("NGO Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
@@ -407,13 +411,13 @@ public class ManageNGO extends javax.swing.JPanel {
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "NGO Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "NGO Name is invalid");
 
             return;
         }
@@ -423,7 +427,7 @@ public class ManageNGO extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
                 throw new Exception("Please enter valid User Name");
 
             }
@@ -433,14 +437,16 @@ public class ManageNGO extends javax.swing.JPanel {
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e){
 
             JOptionPane.showMessageDialog(null, "User Name is invalid");
 
             return;
         }
 
-        business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
+        business.getUserAccountDirectory().updateUserAccount(user, name, username, password);
+        business.getNgoDirectory().updateNGO(ngo, name, contact, address);
+        
         populateManageNGOTable();
         btnSubmit.setEnabled(true);
         btnDelete.setEnabled(true);
@@ -449,6 +455,8 @@ public class ManageNGO extends javax.swing.JPanel {
         txtNGOName.setText("");
         txtNGOUserName.setText("");
         txtNGOPassword.setText("");
+        txtNGOAddress.setText("");
+        txtNGOContact.setText("");
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -463,7 +471,6 @@ public class ManageNGO extends javax.swing.JPanel {
                 UserAccount user=business.getUserAccountDirectory().authenticateUser(username, pwd);
 
                 business.getUserAccountDirectory().deleteUserAccount(user);
-                //                business.getCustomerDirectory().deleteCustomer(user.getUsername());
                 business.getNgoDirectory().deleteNGO(username);
             }
         } else {

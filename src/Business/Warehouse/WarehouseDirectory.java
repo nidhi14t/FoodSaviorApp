@@ -51,7 +51,7 @@ public class WarehouseDirectory {
     return null;
     }
     
-    public void updateWarehouseInfo(Warehouse ware,String warehouseName,String contact,String address){
+    public void updateWarehouse(Warehouse ware, String warehouseName, String contact, String address){
         ware.setWarehouseName(warehouseName);
         ware.setWarehouseAddress(address);
         ware.setWarehouseContact(contact);

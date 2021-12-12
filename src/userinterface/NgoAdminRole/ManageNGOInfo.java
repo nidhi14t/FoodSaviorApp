@@ -197,7 +197,7 @@ public class ManageNGOInfo extends javax.swing.JPanel {
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("NGO Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
@@ -206,13 +206,13 @@ public class ManageNGOInfo extends javax.swing.JPanel {
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "NGO Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "NGO Name is invalid");
 
             return;
         }
@@ -244,19 +244,19 @@ public class ManageNGOInfo extends javax.swing.JPanel {
 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Address is Empty");
+            JOptionPane.showMessageDialog(null, "NGO Address is Empty");
 
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Address is invalid");
+            JOptionPane.showMessageDialog(null, "NGO Address is invalid");
 
             return;
         }
 
         for(NGO ngo:business.getNgoDirectory().getNGOList()){
             if(ngo.getNgoAdminUserName().equals(account.getUsername())){
-                business.getNgoDirectory().updateNGOInfo(ngo, name, number, address);
+                business.getNgoDirectory().updateNGO(ngo, name, number, address);
             }
 
         }

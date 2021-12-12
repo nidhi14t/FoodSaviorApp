@@ -264,11 +264,12 @@ public class ManageVolunteer extends javax.swing.JPanel {
         String password=txtVolunteerPassword.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("Volunteer Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
@@ -277,13 +278,13 @@ public class ManageVolunteer extends javax.swing.JPanel {
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "Volunteer Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "Volunteer Name is invalid");
 
             return;
         }
@@ -293,7 +294,8 @@ public class ManageVolunteer extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
+                
                 throw new Exception("Please enter valid User Name");
 
             }
@@ -350,6 +352,7 @@ public class ManageVolunteer extends javax.swing.JPanel {
         String password=txtVolunteerPassword.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
@@ -379,7 +382,8 @@ public class ManageVolunteer extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
+                
                 throw new Exception("Please enter valid User Name");
 
             }

@@ -38,7 +38,7 @@ public class AssignTaskToVolunteers extends javax.swing.JPanel {
         this.business=business;
         this.userAccount = userAccount;
         populateTable();
-//        lblNGOName.setText(ware.getWarehouseName());
+        lblNGOName.setText("Assign Task to Volunteers");
        
     }
     
@@ -190,8 +190,8 @@ public class AssignTaskToVolunteers extends javax.swing.JPanel {
                         .addGap(662, 662, 662)
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(lblNGOName, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(198, 198, 198)
+                        .addComponent(lblNGOName, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
