@@ -20,8 +20,8 @@
               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="enterpriseLabel" min="-2" pref="195" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="288" max="-2" attributes="0"/>
+                      <Component id="enterpriseLabel" min="-2" pref="335" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                       <Component id="refreshTestJButton" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <Component id="requestTestJButton" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>

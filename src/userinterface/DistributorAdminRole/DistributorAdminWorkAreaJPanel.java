@@ -56,7 +56,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
         distLabel.setText("Distributor");
 
         distnamelabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        distnamelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        distnamelabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         distnamelabel.setText("<value>");
 
         manageLogbtn.setBackground(new java.awt.Color(0, 153, 255));
@@ -123,9 +123,9 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(13, 13, 13)
                             .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(95, 95, 95)
-                            .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(57, 57, 57)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(distWAlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(253, 253, 253))))

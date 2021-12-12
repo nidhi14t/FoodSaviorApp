@@ -44,8 +44,8 @@ public class DistributorInfo extends javax.swing.JPanel {
         for(Distributor rest:business.getDistributorDirectory().getDistributorList()){
            if(rest.getDistAdminUserName().equals(account.getUsername())){
                distNametxt.setText(rest.getDistributorName());
-               distcontacttxt.setText(rest.getDistributorAddress());
-               distaddresstxt.setText(rest.getDistributorContact());
+               distcontacttxt.setText(rest.getDistributorContact());
+               distaddresstxt.setText(rest.getDistributorAddress());
             }         
         }
     }
