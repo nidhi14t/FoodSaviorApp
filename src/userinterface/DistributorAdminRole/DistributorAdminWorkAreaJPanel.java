@@ -45,20 +45,22 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageDelManbtn = new javax.swing.JButton();
         manageOrderbtn = new javax.swing.JButton();
         manageDistInfoBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        distWAlabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        distWAlabel.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         distWAlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distWAlabel.setText("Distributor Work Area ");
 
-        distLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        distLabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         distLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distLabel.setText("Distributor");
 
-        distnamelabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        distnamelabel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         distnamelabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distnamelabel.setText("<value>");
 
-        manageLogbtn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        manageLogbtn.setBackground(new java.awt.Color(0, 153, 255));
+        manageLogbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageLogbtn.setText("Manage Logistics");
         manageLogbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageLogbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +69,8 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageDelManbtn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        manageDelManbtn.setBackground(new java.awt.Color(0, 153, 255));
+        manageDelManbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageDelManbtn.setText("Manage Delivery Man");
         manageDelManbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageDelManbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +79,8 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageOrderbtn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        manageOrderbtn.setBackground(new java.awt.Color(0, 153, 255));
+        manageOrderbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageOrderbtn.setText("Manage Order");
         manageOrderbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageOrderbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +89,8 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageDistInfoBtn.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        manageDistInfoBtn.setBackground(new java.awt.Color(0, 153, 255));
+        manageDistInfoBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageDistInfoBtn.setText("Manage Distributor Info");
         manageDistInfoBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageDistInfoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -94,54 +99,58 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/User_icon-cp.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(67, 67, 67)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(manageDelManbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(manageDistInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(369, 369, 369))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(95, 95, 95)
+                            .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap()))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(distWAlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageDistInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(283, 283, 283))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(272, 272, 272)
-                    .addComponent(manageDelManbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(336, Short.MAX_VALUE)))
+                        .addComponent(distWAlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(253, 253, 253))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(distWAlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(distWAlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(manageDelManbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(distLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(distnamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(manageOrderbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(manageLogbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
                 .addComponent(manageDistInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(217, 217, 217)
-                    .addComponent(manageDelManbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(305, Short.MAX_VALUE)))
+                .addGap(199, 199, 199))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,13 +168,13 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageLogbtnActionPerformed
 
-    private void manageOrderbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrderbtnActionPerformed
+    private void manageOrderbtnActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
         ManageOrder manageOrder=new ManageOrder(userProcessContainer,account,business);
         userProcessContainer.add("Manage Restaurants",manageOrder);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_manageLogbtn1ActionPerformed
+    }                                             
 
     private void manageDistInfoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDistInfoBtnActionPerformed
         // TODO add your handling code here:
@@ -181,6 +190,7 @@ public class DistributorAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel distLabel;
     private javax.swing.JLabel distWAlabel;
     private javax.swing.JLabel distnamelabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageDelManbtn;
     private javax.swing.JButton manageDistInfoBtn;
     private javax.swing.JButton manageLogbtn;
