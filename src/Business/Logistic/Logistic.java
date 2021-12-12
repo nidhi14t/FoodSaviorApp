@@ -8,7 +8,6 @@ package Business.Logistic;
 import Business.DiscardedItem.DiscardedItem;
 import Business.WarehouseOrder.WarehouseOrder;
 import java.util.ArrayList;
-import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
