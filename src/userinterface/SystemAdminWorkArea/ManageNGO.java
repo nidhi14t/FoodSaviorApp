@@ -334,7 +334,7 @@ public class ManageNGO extends javax.swing.JPanel {
             populateManageNGOTable();
             SendEmail se = new SendEmail(username, "NGO Registration");
             se.sendEmailToUsers(username, "NGO Registration");
-            JOptionPane.showMessageDialog(null,"Email has been sent to give Username. Please check");
+            JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
 
             txtNGOName.setText("");
             txtNGOUserName.setText("");
