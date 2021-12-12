@@ -18,6 +18,9 @@ public class Customer {
     private String lastName;
     private String contact;
     private String address;
+    private String state;
+    private String city;
+    private String zip;
     private String username;
     private int id = 1001;
     private int custId = 101;
@@ -57,6 +60,32 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+    
+    
 
     public String getUsername() {
         return username;
