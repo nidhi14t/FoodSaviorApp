@@ -52,10 +52,10 @@ public class NgoAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageCompletedOrders = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        lblEnterprise.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        lblEnterprise.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblEnterprise.setText("NGO Name: ");
 
-        lblNgoName.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        lblNgoName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblNgoName.setText("<value>");
 
         lblNgoAdminRole.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
