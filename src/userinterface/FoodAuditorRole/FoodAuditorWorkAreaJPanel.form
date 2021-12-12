@@ -19,25 +19,26 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                      <Component id="lblEnterprise" min="-2" pref="156" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                      <Component id="lblNgoName" min="-2" pref="170" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                      <Component id="lblNgoAdminRole" min="-2" pref="376" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNgoAdminRole" min="-2" pref="366" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="lblEnterprise" min="-2" pref="156" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                              <Component id="lblNgoName" min="-2" pref="170" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="302" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="233" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="210" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,16 +47,16 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Component id="lblNgoAdminRole" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblEnterprise" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lblNgoName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="203" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="220" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
