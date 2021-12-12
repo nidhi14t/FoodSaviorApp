@@ -11,16 +11,13 @@ import java.util.ArrayList;
 
 /**
  *
- * @author nidhitiwari
+ * @author piyus
  */
 public class Customer {
     private String firstName;
     private String lastName;
     private String contact;
     private String address;
-    private String city;
-    private String state;
-    private String emailId;
     private String username;
     private int id = 1001;
     private int custId = 101;
@@ -61,30 +58,6 @@ public class Customer {
         this.address = address;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -117,7 +90,6 @@ public class Customer {
         order.setOrderID(String.valueOf(id));
         order.setCustomerName(customerName);
         order.setWarehouseName(restaurantName);
-//        order.setDeliveryMan(deliveryMan);
         order.setWarehouseOrder(Order);
         order.setPrice(price);
         order.setDeliveryAddress(deliveryAddress);
