@@ -43,12 +43,17 @@ public class CustomerDirectory {
         return customer;
     }
     
-    public Customer createCustomer(String name, String username){
+    public Customer createCustomer(String name, String username, String address, String state, String city, String zip, String contact){
         Customer cust = new Customer();
         cust.setUsername(username);
         cust.setFirstName(name);
+        cust.setAddress(address);
+        cust.setState(state);
+        cust.setCity(city);
+        cust.setContact(contact);
+        cust.setZip(zip);
         customerList.add(cust);  
-            return cust;
+        return cust;
     }
     
     public void deleteCustomer(String username){
