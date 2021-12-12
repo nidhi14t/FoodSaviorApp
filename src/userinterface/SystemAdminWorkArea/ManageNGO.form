@@ -69,10 +69,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="242" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblManageNGOTitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
@@ -100,9 +97,9 @@
                           <Component id="lblNGOContact" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNGOContact" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnBack" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="btnSubmit" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>

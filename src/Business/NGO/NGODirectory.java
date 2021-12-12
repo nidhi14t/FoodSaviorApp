@@ -52,7 +52,7 @@ public class NGODirectory {
     return null;
     }
     
-    public void updateNGOInfo(NGO ngo,String ngoName,String contact,String address){
+    public void updateNGO(NGO ngo, String ngoName, String contact, String address){
         ngo.setNgoName(ngoName);
         ngo.setNgoAddress(address);
         ngo.setNgoContact(contact);

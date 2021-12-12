@@ -30,6 +30,7 @@ public class ManageWarehouse extends javax.swing.JPanel {
     private BusinessModel business;
     UserAccount user;
     SendEmail sendomail;
+    Warehouse warehouse;
     
     public ManageWarehouse(JPanel userProcessContainer, BusinessModel business) {
         initComponents();
@@ -188,55 +189,56 @@ public class ManageWarehouse extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)))
-                .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(lblManageWarehouseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblWarehouseName)
+                            .addComponent(lblWarehousePassword)
+                            .addComponent(lblWarehouseContact)
+                            .addComponent(lblWarehouseAddress)
+                            .addComponent(lblWarehouseUsername)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblWarehouseName)
-                                    .addComponent(lblWarehousePassword)
-                                    .addComponent(lblWarehouseContact)
-                                    .addComponent(lblWarehouseAddress)
-                                    .addComponent(lblWarehouseUsername)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(115, 115, 115)
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtWarehouseName)
-                            .addComponent(txtWarehouseUserName)
-                            .addComponent(txtWarehousePassword)
-                            .addComponent(txtWarehouseAddress)
-                            .addComponent(txtWarehouseContact, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)))))
+                        .addGap(115, 115, 115)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtWarehouseName)
+                    .addComponent(txtWarehouseUserName)
+                    .addComponent(txtWarehousePassword)
+                    .addComponent(txtWarehouseAddress)
+                    .addComponent(txtWarehouseContact, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)))
                 .addGap(31, 31, 31))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)))
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblManageWarehouseTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(327, 327, 327))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(21, 21, 21)
                 .addComponent(lblManageWarehouseTitle)
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -295,27 +297,29 @@ public class ManageWarehouse extends javax.swing.JPanel {
         String password=txtWarehousePassword.getText();
         String address=txtWarehouseAddress.getText();
         String contact=txtWarehouseContact.getText();
+        
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("Warehouse Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid Warehouse Name");
 
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "Warehouse Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "Warehouse Name is invalid");
 
             return;
         }
@@ -325,8 +329,8 @@ public class ManageWarehouse extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
-                throw new Exception("Please enter valid User Name");
+            } else if (special.matcher(username).find() == false ){
+                throw new Exception("User Name should contain special characters");
 
             }
         } catch(NullPointerException e){
@@ -335,9 +339,9 @@ public class ManageWarehouse extends javax.swing.JPanel {
 
             return;
 
-        }catch (Exception e){
+        } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name should contain special characters");
 
             return;
         }
@@ -374,7 +378,8 @@ public class ManageWarehouse extends javax.swing.JPanel {
             populateManageWarehouseTable();
             SendEmail se = new SendEmail(username, "Warehouse Registration");
             se.sendEmailToUsers(username, "Warehouse Registration");
-            JOptionPane.showMessageDialog(null,"Email has been sent to the given Username. Please check");
+            
+            JOptionPane.showMessageDialog(null,"Email has been sent to " + username + " Please check");
 
             txtWarehouseName.setText("");
             txtWarehouseUserName.setText("");
@@ -413,28 +418,31 @@ public class ManageWarehouse extends javax.swing.JPanel {
         String name = txtWarehouseName.getText();
         String username=txtWarehouseUserName.getText();
         String password=txtWarehousePassword.getText();
+        String address=txtWarehouseAddress.getText();
+        String contact=txtWarehouseContact.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("Warehouse Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid Warehouse Name");
 
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "Warehouse Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "Warehouse Name is invalid");
 
             return;
         }
@@ -444,7 +452,7 @@ public class ManageWarehouse extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false){
                 throw new Exception("Please enter valid User Name");
 
             }
@@ -461,7 +469,8 @@ public class ManageWarehouse extends javax.swing.JPanel {
             return;
         }
 
-        business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
+        business.getUserAccountDirectory().updateUserAccount(user, name, username, password);
+        business.getWarehouseDirectory().updateWarehouse(warehouse, name, contact, address);
         populateManageWarehouseTable();
         btnSubmit.setEnabled(true);
         btnDelete.setEnabled(true);
@@ -470,6 +479,8 @@ public class ManageWarehouse extends javax.swing.JPanel {
         txtWarehouseName.setText("");
         txtWarehouseUserName.setText("");
         txtWarehousePassword.setText("");
+        txtWarehouseAddress.setText("");
+        txtWarehouseContact.setText("");
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

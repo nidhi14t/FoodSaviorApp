@@ -137,7 +137,7 @@ public class SendEmail {
             message.setFrom(new InternetAddress(fromEmail));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(getToEmail()));
             message.setSubject(getSubject());
-            message.setText("Congratulations You have been registered with our app Food Savior" + "Your password is " + password);
+            message.setText("Congratulations You have been registered with our app Food Savior " + "Your password is " + password);
             Transport.send(message);
               
         } catch(Exception e) {

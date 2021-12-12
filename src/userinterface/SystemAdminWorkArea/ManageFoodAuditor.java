@@ -26,6 +26,7 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private BusinessModel business;
     UserAccount user;
+    FoodAuditor foa;
     /**
      * Creates new form ManageFoodAuditor
      */ 
@@ -193,7 +194,7 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(183, 183, 183)
+                        .addGap(150, 150, 150)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,27 +284,29 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
         String password=txtfaPassword.getText();
         String address=txtfaAddress.getText();
         String contact=txtfaContact.getText();
+        
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("Food Auditor Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
-                throw new Exception("Please enter valid  Name");
+                throw new Exception("Please enter valid Food Auditor Name");
 
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "Food Auditor Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "Food Auditor Name is invalid");
 
             return;
         }
@@ -313,9 +316,9 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
-                throw new Exception("Please enter valid User Name");
-
+            } else if (special.matcher(username).find() == false ) {
+                
+                throw new Exception("User Name should contain special characters");
             }
         } catch(NullPointerException e){
 
@@ -325,7 +328,7 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
 
         }catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "User Name is invalid");
+            JOptionPane.showMessageDialog(null, "User Name should contain special characters");
 
             return;
         }
@@ -418,11 +421,13 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
         String contact=txtfaContact.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
         try {
             if(name==null || name.isEmpty()){
 
-                throw new NullPointerException("Name cannot be empty");
+                throw new NullPointerException("Food Auditor Name cannot be empty");
 
             } else if (pattern.matcher(name).find() == false){
 
@@ -431,13 +436,13 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
             }
         } catch(NullPointerException e){
 
-            JOptionPane.showMessageDialog(null, "Name is empty");
+            JOptionPane.showMessageDialog(null, "Food Auditor Name is empty");
 
             return;
 
         } catch (Exception e){
 
-            JOptionPane.showMessageDialog(null, "Name is invalid");
+            JOptionPane.showMessageDialog(null, "Food Auditor Name is invalid");
 
             return;
         }
@@ -447,9 +452,9 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
 
                 throw new NullPointerException("User Name cannot be empty");
 
-            } else if (username.length()<3){
-                throw new Exception("Please enter valid User Name");
-
+            } else if (special.matcher(username).find() == false ) {
+                
+                throw new Exception("User Name should contain special characters");
             }
         } catch(NullPointerException e){
 
@@ -465,7 +470,7 @@ public class ManageFoodAuditor extends javax.swing.JPanel {
         }
 
         business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
-//        FoodAuditor fa= business.getFoodAuditorDirectory().updateFoodAuditor(fa, name, contact, address);
+        business.getFoodAuditorDirectory().updateFoodAuditor(foa, name, contact, address);
         populateManageFATable();
         btnSubmit.setEnabled(true);
         btnDelete.setEnabled(true);

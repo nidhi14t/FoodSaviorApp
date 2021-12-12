@@ -51,7 +51,7 @@ public class UserAccountDirectory {
         return userAccount;
     }
     
-    public void updateUserAccount(UserAccount user,String name,String username, String password){
+    public void updateUserAccount(UserAccount user, String name, String username, String password){
        
         user.setName(name);
         user.setUsername(username);

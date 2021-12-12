@@ -49,7 +49,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         lblEnterprise = new javax.swing.JLabel();
         lblWarehouseName = new javax.swing.JLabel();
 
-        lblWarehouseAdminRole.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblWarehouseAdminRole.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         lblWarehouseAdminRole.setText("My Work Area -Warehouse Adminstrative Role");
 
         btnManageWarehouseInfo.setBackground(new java.awt.Color(0, 153, 255));
@@ -70,10 +70,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEnterprise.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
-        lblEnterprise.setText("Warehouse");
+        lblEnterprise.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblEnterprise.setText("Warehouse:");
 
-        lblWarehouseName.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
+        lblWarehouseName.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblWarehouseName.setText("<value>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -81,37 +81,37 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(lblWarehouseAdminRole)
-                .addGap(57, 57, 57))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(308, 308, 308))
+                            .addComponent(lblWarehouseAdminRole, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblWarehouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblWarehouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(65, 65, 65)
                 .addComponent(lblWarehouseAdminRole)
-                .addGap(19, 19, 19)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWarehouseName)
                     .addComponent(lblEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
-                .addComponent(btnManageDiscardedItems)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageWarehouseInfo)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addComponent(btnManageDiscardedItems, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnManageWarehouseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145))
         );
     }// </editor-fold>//GEN-END:initComponents
 

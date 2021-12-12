@@ -26,6 +26,7 @@ public class ManageDistributor extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private BusinessModel business;
     UserAccount user;
+    Distributor distri;
     
     public ManageDistributor(JPanel userProcessContainer, BusinessModel business) {
         initComponents();
@@ -321,7 +322,9 @@ public class ManageDistributor extends javax.swing.JPanel {
         String password = mpasstxt.getText();
         String address = distAddresstxt.getText();
         String contact = distContcttxt.getText();
+        
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
               
         try {
              if(name==null || name.isEmpty()){
@@ -341,8 +344,10 @@ public class ManageDistributor extends javax.swing.JPanel {
         try {
              if(username==null || username.isEmpty()){
                 throw new NullPointerException("User Name cannot be empty");
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
+                
                 throw new Exception("Please enter valid User Name");
+                
             }
         } catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "User Name cannot be empty");
@@ -412,8 +417,11 @@ public class ManageDistributor extends javax.swing.JPanel {
         String name = dnametxt.getText();
         String username=mnametxt.getText();
         String password=mpasstxt.getText();
+        String address = distAddresstxt.getText();
+        String contact = distContcttxt.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
+        Pattern special = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
               
         try {
              if(name==null || name.isEmpty()){
@@ -432,10 +440,13 @@ public class ManageDistributor extends javax.swing.JPanel {
         try {
              if(username==null || username.isEmpty()){
                 throw new NullPointerException("User Name cannot be empty");
-            } else if (username.length()<3){
+            } else if (special.matcher(username).find() == false) {
+                
                 throw new Exception("Please enter valid User Name");
+
             }
-        } catch(NullPointerException e){
+        } catch(NullPointerException e) {
+            
             JOptionPane.showMessageDialog(null, "User Name is Empty");
             return;
         }catch (Exception e){
@@ -444,6 +455,7 @@ public class ManageDistributor extends javax.swing.JPanel {
         }
         
             business.getUserAccountDirectory().updateUserAccount(user,name,username,password);
+            business.getDistributorDirectory().updateDistributorInfo(distri, name, contact, address);
             populateManageDistributorTable();
             submitBtn.setEnabled(true);
             deleteBtn.setEnabled(true);
