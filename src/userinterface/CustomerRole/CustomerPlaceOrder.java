@@ -82,8 +82,9 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
         lbWarehouseName = new javax.swing.JLabel();
 
         btnRemove.setBackground(new java.awt.Color(0, 153, 255));
-        btnRemove.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnRemove.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnRemove.setText("Remove from Cart");
+        btnRemove.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
@@ -98,21 +99,22 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish Name", "Amount"
+                "Item Name", "Amount"
             }
         ));
         jScrollPane2.setViewportView(tblMenu);
 
         btnAddToCart.setBackground(new java.awt.Color(0, 153, 255));
-        btnAddToCart.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnAddToCart.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnAddToCart.setText("Add to Cart");
+        btnAddToCart.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddToCartActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         jLabel1.setText("Cart");
 
         jButton1.setBackground(new java.awt.Color(0, 153, 255));
@@ -124,21 +126,23 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
             }
         });
 
+        txtAddress.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Enter Address:");
 
-        lblPlaceOrderTitle.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
-        lblPlaceOrderTitle.setText("Place Order From");
+        lblPlaceOrderTitle.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
+        lblPlaceOrderTitle.setText("Place Order From:");
 
         btnOrder.setBackground(new java.awt.Color(0, 153, 255));
-        btnOrder.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        btnOrder.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnOrder.setText("Place Order");
+        btnOrder.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderActionPerformed(evt);
@@ -153,12 +157,12 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Dish Name", "Amount"
+                "Item Name", "Amount"
             }
         ));
         jScrollPane1.setViewportView(tblCart);
 
-        lbWarehouseName.setFont(new java.awt.Font("Lucida Grande", 3, 18)); // NOI18N
+        lbWarehouseName.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         lbWarehouseName.setText("<Name>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,12 +179,12 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70))
+                                .addGap(62, 62, 62))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblPlaceOrderTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbWarehouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblPlaceOrderTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(lbWarehouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,7 +219,7 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
