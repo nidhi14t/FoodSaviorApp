@@ -131,13 +131,13 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
 
         tblItem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item Name", "Price"
+                "Item Name", "Price", "Quantity"
             }
         ));
         jScrollPane1.setViewportView(tblItem);
@@ -310,6 +310,7 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
 
         txtItemName.setText("");
         txtItemPrice.setText("");
+        txtItemQuantity.setText("");
         populateItemTable();
 
     }//GEN-LAST:event_btnSaveActionPerformed

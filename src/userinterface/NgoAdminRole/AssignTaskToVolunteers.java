@@ -130,7 +130,7 @@ public class AssignTaskToVolunteers extends javax.swing.JPanel {
         lblPlaceOrderTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblPlaceOrderTitle.setText("Assign Orders to Volunteers for Distribution   ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Orphanage Center", "Old Age Home", "Food Trucks" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Care Home Orphanage Center", "Helping Seniors Old Age Home", "People In Need", "Women Thrive" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

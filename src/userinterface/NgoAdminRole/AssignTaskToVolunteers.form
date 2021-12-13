@@ -201,10 +201,11 @@
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Orphanage Center"/>
-            <StringItem index="1" value="Old Age Home"/>
-            <StringItem index="2" value="Food Trucks"/>
+          <StringArray count="4">
+            <StringItem index="0" value="Care Home Orphanage Center"/>
+            <StringItem index="1" value="Helping Seniors Old Age Home"/>
+            <StringItem index="2" value="People In Need"/>
+            <StringItem index="3" value="Women Thrive"/>
           </StringArray>
         </Property>
       </Properties>
