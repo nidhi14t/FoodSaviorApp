@@ -50,9 +50,10 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
             if (ware.getAdminUserName().equals(account.getUsername())) {
                 
                for(DiscardedItem item:ware.getItem()){
-                Object[] row = new Object[2];
+                Object[] row = new Object[3];
                 row[0] = item.getItemName();
                 row[1] = item.getPrice();
+                row[2] = item.getQuantity();
                 model.addRow(row);
                }
                 
@@ -80,6 +81,8 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblItem = new javax.swing.JTable();
+        lblItemQuantity = new javax.swing.JLabel();
+        txtItemQuantity = new javax.swing.JTextField();
 
         btnDelete.setBackground(new java.awt.Color(255, 0, 51));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -139,6 +142,15 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblItem);
 
+        lblItemQuantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblItemQuantity.setText("Quantity:");
+
+        txtItemQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemQuantityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,26 +158,32 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblWarehouseItems, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(111, 111, 111)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblItemName)
-                                .addComponent(lblItemPrice))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblWarehouseItems, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(111, 111, 111)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblItemName)
+                                        .addComponent(lblItemPrice)
+                                        .addComponent(lblItemQuantity))
                                     .addGap(46, 46, 46)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(71, 71, 71)
-                                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(82, 82, 82))
+                                        .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(177, 177, 177))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,13 +203,17 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblItemQuantity)
+                    .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(34, 34, 34)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,7 +232,7 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
                 }
                 populateItemTable();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a Row!");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -230,6 +252,7 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name=txtItemName.getText();
         Double price=Double.parseDouble(txtItemPrice.getText());
+        String quantity=txtItemQuantity.getText();
 
         Pattern pattern = Pattern.compile("^[a-zA-Z'\\-\\s]+$");
 
@@ -281,7 +304,7 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
 
         for(Warehouse ware:business.getWarehouseDirectory().getWarehouseList()){
             if(ware.getAdminUserName().equals(account.getUsername())){
-                item=business.getWarehouseDirectory().AddDiscardedItems(ware, name, price);
+                item=business.getWarehouseDirectory().AddDiscardedItems(ware, name, price, quantity);
             }
         }
 
@@ -291,6 +314,10 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void txtItemQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtItemQuantityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -299,9 +326,11 @@ public class ManageDiscardedItems extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblItemName;
     private javax.swing.JLabel lblItemPrice;
+    private javax.swing.JLabel lblItemQuantity;
     private javax.swing.JLabel lblWarehouseItems;
     private javax.swing.JTable tblItem;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtItemPrice;
+    private javax.swing.JTextField txtItemQuantity;
     // End of variables declaration//GEN-END:variables
 }

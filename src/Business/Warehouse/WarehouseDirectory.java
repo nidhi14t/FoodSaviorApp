@@ -31,7 +31,7 @@ public class WarehouseDirectory {
         this.warehouseList = warehouseList;
     }
     
-    public Warehouse createWarehouseInfo(String warehouseName, String username, String address,String contact){
+    public Warehouse createWarehouseInfo(String warehouseName, String username, String address, String contact){
         Warehouse warehouse = new Warehouse();
         warehouse.setAdminUserName(username);
         warehouse.setWarehouseName(warehouseName);
@@ -57,8 +57,8 @@ public class WarehouseDirectory {
         ware.setWarehouseContact(contact);
     }
     
-    public DiscardedItem AddDiscardedItems(Warehouse ware,String itemName,Double price){
-        item=new DiscardedItem(itemName, price);
+    public DiscardedItem AddDiscardedItems(Warehouse ware,String itemName, Double price, String quantity){
+        item=new DiscardedItem(itemName, price, quantity);
         ware.addItem(item);
         return item;
     }

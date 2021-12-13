@@ -51,12 +51,15 @@ public class AssignTaskToVolunteers extends javax.swing.JPanel {
            
             if (ngo.getNgoAdminUserName().equals(userAccount.getUsername())) {
                for(WarehouseOrder wo:ngo.getOrderList()){
-                Object[] row = new Object[3];
-                row[0] = wo;
-                row[1] = wo.getNgoName();
-                row[2] = wo.getWarehouseName();
-                row[2] = wo.getStatus();
-                model.addRow(row);
+                   System.out.print("wo.getStatus() " + wo.getStatus());
+//                   if (wo.getStatus().equalsIgnoreCase("Done") || wo.getStatus().equalsIgnoreCase("Assigned to Volunteer") || wo.getStatus().equalsIgnoreCase("Delivered to Org")) {
+                    Object[] row = new Object[4];
+                    row[0] = wo;
+                    row[1] = wo.getNgoName();
+                    row[2] = wo.getWarehouseName();
+                    row[2] = wo.getStatus();
+                    model.addRow(row);
+//                   }
                }
                 
             }

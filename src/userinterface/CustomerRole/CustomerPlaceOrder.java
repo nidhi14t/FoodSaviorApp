@@ -50,11 +50,14 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
         
             model.setRowCount(0);
-                Object[] row = new Object[2];
+                Object[] row = new Object[3];
                 for(DiscardedItem food:ware.getItem()){
+                    if (food.isGoodToConsume() == true) {
                      row[0] = food;
                      row[1] = food.getPrice();
+                     row[2] = food.getQuantity();
                      model.addRow(row);
+                    }
                 }  
     }
 
@@ -236,10 +239,11 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
             sum=sum-item.getPrice();
             DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
             model.setRowCount(0);
-            Object[] row = new Object[1];
+            Object[] row = new Object[3];
             for(DiscardedItem food:items){
                 row[0] = food;
                 row[1] = food.getPrice();
+                row[2] = food.getQuantity();
 
                 model.addRow(row);
             }
@@ -262,15 +266,19 @@ public class CustomerPlaceOrder extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddToCartActionPerformed
 
         public void populateCartTable(DiscardedItem item){
+            
         DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
         model.setRowCount(0);
         
          items.add(item);
-         Object[] row = new Object[2];
+         Object[] row = new Object[3];
                 for(DiscardedItem food:items){
                      row[0] = food;
                      row[1] = food.getPrice();
+                     row[1] = food.getQuantity();
+                     
                      sum = sum + food.getPrice();
+                     
                      model.addRow(row);
                 }  
      }
