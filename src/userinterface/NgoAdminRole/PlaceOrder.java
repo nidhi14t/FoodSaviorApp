@@ -90,13 +90,13 @@ public class PlaceOrder extends javax.swing.JPanel {
 
         tblItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item Name", "Amount"
+                "Item Name", "Amount", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(tblItems);
@@ -148,13 +148,13 @@ public class PlaceOrder extends javax.swing.JPanel {
 
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Item Name", "Amount"
+                "Item Name", "Amount", "Quantity"
             }
         ));
         jScrollPane1.setViewportView(tblCart);
