@@ -13,6 +13,7 @@ public class DiscardedItem {
     private String warehouseName;
     private String itemName;
     private double price;
+    private String quantity;
     private boolean goodToConsume = false;
 
     public boolean isGoodToConsume() {
@@ -22,10 +23,19 @@ public class DiscardedItem {
     public void setGoodToConsume(boolean goodToConsume) {
         this.goodToConsume = goodToConsume;
     }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
     
-    public DiscardedItem(String itemName,Double price) {
-        this.itemName=itemName;
-        this.price=price;
+    public DiscardedItem(String itemName, Double price, String quantity) {
+        this.itemName = itemName;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public String getWarehouseName() {

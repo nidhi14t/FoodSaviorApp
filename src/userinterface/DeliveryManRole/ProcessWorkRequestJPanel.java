@@ -7,6 +7,7 @@ package userinterface.DeliveryManRole;
 
 import Business.BusinessModel;
 import Business.Customer.Customer;
+import Business.NGO.NGO;
 import Business.WarehouseOrder.WarehouseOrder;
 import Business.WorkQueue.RequestResult;
 import java.awt.CardLayout;
@@ -151,7 +152,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         String status=resultJTextField.getText();
         try {
             if(status==null || status.isEmpty()){
-                throw new Exception(" Status field is Empty");
+                throw new Exception("Status field is Empty");
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "Status is Empty");

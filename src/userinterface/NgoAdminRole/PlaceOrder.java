@@ -53,11 +53,12 @@ public class PlaceOrder extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) tblItems.getModel();
         
             model.setRowCount(0);
-                Object[] row = new Object[2];
+                Object[] row = new Object[3];
                 for(DiscardedItem item:ware.getItem()){
                     if (item.isGoodToConsume() == true) {
                      row[0] = item;
                      row[1] = item.getPrice();
+                     row[2] = item.getQuantity();
                      model.addRow(row); 
                     }
                 }  
@@ -267,10 +268,11 @@ public class PlaceOrder extends javax.swing.JPanel {
         model.setRowCount(0);
         
          items.add(item);
-         Object[] row = new Object[2];
+         Object[] row = new Object[3];
                 for(DiscardedItem ditem:items){
                      row[0] = ditem;
                      row[1] = ditem.getPrice();
+                     row[2] = ditem.getQuantity();
                      sum = sum + ditem.getPrice();
                      model.addRow(row);
                 }  
@@ -343,12 +345,15 @@ public class PlaceOrder extends javax.swing.JPanel {
 
             items.remove(item);
             sum=sum-item.getPrice();
+            
             DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
             model.setRowCount(0);
-            Object[] row = new Object[1];
+            
+            Object[] row = new Object[3];
             for(DiscardedItem ditem:items){
                 row[0] = ditem;
                 row[1] = ditem.getPrice();
+                row[2] = ditem.getQuantity();
 
                 model.addRow(row);
             }
